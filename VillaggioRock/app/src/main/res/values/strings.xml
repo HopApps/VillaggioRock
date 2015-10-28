@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VillaggioRock</string>
+    <string name="fb_login">Facebook Login</string>
 </resources>
