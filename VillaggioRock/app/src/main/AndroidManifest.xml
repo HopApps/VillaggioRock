@@ -11,6 +11,8 @@
         <activity android:name=".MenuActivity" >
         </activity>
         <activity android:name=".EventsActivity" >
+        </activity>
+        <activity android:name=".GadgetsActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
