@@ -13,9 +13,10 @@
         <activity android:name=".EventsActivity" >
         </activity>
         <activity android:name=".GadgetsActivity" >
+        </activity>
+        <activity android:name=".AlbumsActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
