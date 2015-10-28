@@ -8,4 +8,12 @@ public class MenuItem {
         this.name = name;
         this.photoId = photoId;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPhotoId() {
+        return photoId;
+    }
 }
