@@ -31,4 +31,10 @@
         Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores
         alias consequatur aut perferendis doloribus asperiores repellat.</string>
     <string name="fb_login">Facebook Login</string>
+    <string name="title_activity_reservation">ReservationActivity</string>
+    <string name="reservation_type">Selezionare tipo di prenotazione</string>
+    <string name="reservation_number_hint">Numero di partecipanti</string>
+    <string name="mail_hint">Email</string>
+    <string name="reservation_dialog_title">Conferma prenotazione</string>
+    <string name="reservation_dialog_body">Confermi la prenotazione?</string>
 </resources>
