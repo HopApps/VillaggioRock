@@ -23,7 +23,7 @@ public class EventsActivity extends AppCompatActivity {
         RecyclerView rv = (RecyclerView) findViewById(R.id.recicler_view_events_menu);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
-        RVMenuAdapter adapter = new RVMenuAdapter(eventsItems);
+        RVMenuAdapter adapter = new RVMenuAdapter(eventsItems, EventsActivity.this);
         rv.setAdapter(adapter);
         rv.setHasFixedSize(true);
     }

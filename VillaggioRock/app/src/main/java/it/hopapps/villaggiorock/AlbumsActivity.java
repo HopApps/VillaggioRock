@@ -23,7 +23,7 @@ public class AlbumsActivity extends AppCompatActivity {
         RecyclerView rv = (RecyclerView) findViewById(R.id.recicler_view_albums_menu);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
-        RVMenuAdapter adapter = new RVMenuAdapter(albumsItems);
+        RVMenuAdapter adapter = new RVMenuAdapter(albumsItems, AlbumsActivity.this);
         rv.setAdapter(adapter);
         rv.setHasFixedSize(true);
     }

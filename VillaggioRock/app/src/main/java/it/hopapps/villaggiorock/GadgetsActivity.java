@@ -23,7 +23,7 @@ public class GadgetsActivity extends AppCompatActivity {
         RecyclerView rv = (RecyclerView) findViewById(R.id.recicler_view_gadgets_menu);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
-        RVMenuAdapter adapter = new RVMenuAdapter(gadgetsItems);
+        RVMenuAdapter adapter = new RVMenuAdapter(gadgetsItems, GadgetsActivity.this);
         rv.setAdapter(adapter);
         rv.setHasFixedSize(true);
     }
