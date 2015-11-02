@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/activity_gadget"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="it.hopapps.villaggiorock.GadgetActivity">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/size_icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/gadget_size"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginStart="@dimen/text_margin"/>
+
+    <TextView
+        android:id="@+id/tv_size"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginStart="@dimen/text_margin"
+        android:layout_toRightOf="@id/size_icon"
+        android:layout_toEndOf="@id/size_icon"
+        android:text="@string/size_selection"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginStart="@dimen/text_margin"
+        android:layout_toRightOf="@id/tv_size"
+        android:layout_toEndOf="@id/tv_size"
+        />
+
+
+    <ImageView
+        android:id="@+id/colour_icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/gadget_colour"
+        android:layout_below="@id/size_icon"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginStart="@dimen/text_margin"/>
+
+    <TextView
+        android:id="@+id/tv_colour"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:gravity="center_vertical"
+        android:layout_below="@id/size_icon"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginStart="@dimen/text_margin"
+        android:layout_toRightOf="@id/colour_icon"
+        android:layout_toEndOf="@id/colour_icon"
+        android:text="@string/colour_selection"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_below="@id/tv_size"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginStart="@dimen/text_margin"
+        android:layout_toRightOf="@id/tv_colour"
+        android:layout_toEndOf="@id/tv_colour"
+        />
+
+    <TextView
+        android:id="@+id/gadget_description"
+        android:layout_below="@id/colour_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:text="@string/long_string" />
+
+    </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

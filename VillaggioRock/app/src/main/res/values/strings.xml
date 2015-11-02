@@ -31,4 +31,17 @@
         Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores
         alias consequatur aut perferendis doloribus asperiores repellat.</string>
     <string name="fb_login">Facebook Login</string>
+    <string name="title_activity_gadget">GadgetActivity</string>
+    <string name="colour_selection">Colore:</string>
+    <string name="size_selection">Taglia:</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 </resources>
