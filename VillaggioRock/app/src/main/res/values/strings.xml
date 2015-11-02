@@ -34,14 +34,6 @@
     <string name="title_activity_gadget">GadgetActivity</string>
     <string name="colour_selection">Colore:</string>
     <string name="size_selection">Taglia:</string>
-    <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-    </string-array>
+    <string name="gadget_dialog_title">Conferma prenotazione</string>
+    <string name="gadget_dialog_message">Confermi la prenotazione?</string>
 </resources>

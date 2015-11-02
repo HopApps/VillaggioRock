@@ -23,26 +23,15 @@
         android:layout_marginLeft="@dimen/text_margin"
         android:layout_marginStart="@dimen/text_margin"/>
 
-    <TextView
-        android:id="@+id/tv_size"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:gravity="center_vertical"
-        android:layout_marginTop="@dimen/text_margin"
-        android:layout_marginLeft="@dimen/text_margin"
-        android:layout_marginStart="@dimen/text_margin"
-        android:layout_toRightOf="@id/size_icon"
-        android:layout_toEndOf="@id/size_icon"
-        android:text="@string/size_selection"/>
 
     <Spinner
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/gadget_width"
         android:layout_height="36dp"
+        android:layout_toEndOf="@id/size_icon"
+        android:layout_toRightOf="@id/size_icon"
         android:layout_marginTop="@dimen/text_margin"
         android:layout_marginLeft="@dimen/text_margin"
         android:layout_marginStart="@dimen/text_margin"
-        android:layout_toRightOf="@id/tv_size"
-        android:layout_toEndOf="@id/tv_size"
         />
 
 
@@ -56,28 +45,15 @@
         android:layout_marginLeft="@dimen/text_margin"
         android:layout_marginStart="@dimen/text_margin"/>
 
-    <TextView
-        android:id="@+id/tv_colour"
-        android:layout_width="wrap_content"
+    <Spinner
+        android:layout_width="@dimen/gadget_width"
         android:layout_height="36dp"
-        android:gravity="center_vertical"
         android:layout_below="@id/size_icon"
         android:layout_marginTop="@dimen/text_margin"
         android:layout_marginLeft="@dimen/text_margin"
         android:layout_marginStart="@dimen/text_margin"
         android:layout_toRightOf="@id/colour_icon"
         android:layout_toEndOf="@id/colour_icon"
-        android:text="@string/colour_selection"/>
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_below="@id/tv_size"
-        android:layout_marginTop="@dimen/text_margin"
-        android:layout_marginLeft="@dimen/text_margin"
-        android:layout_marginStart="@dimen/text_margin"
-        android:layout_toRightOf="@id/tv_colour"
-        android:layout_toEndOf="@id/tv_colour"
         />
 
     <TextView
