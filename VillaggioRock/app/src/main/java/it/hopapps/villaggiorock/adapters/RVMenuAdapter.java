@@ -14,6 +14,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import it.hopapps.villaggiorock.AlbumsActivity;
+import it.hopapps.villaggiorock.EventActivity;
 import it.hopapps.villaggiorock.EventsActivity;
 import it.hopapps.villaggiorock.GadgetsActivity;
 import it.hopapps.villaggiorock.MenuActivity;
@@ -60,27 +61,35 @@ public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemVi
     @Override
     public void onClick(View view) {
         MenuItemViewHolder holder = (MenuItemViewHolder) view.getTag();
-        if (view.getId() == holder.itemName.getId() || view.getId() == holder.itemPhoto.getId()) {
-            if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.events_menu_name))) {
-                Intent intent = new Intent(view.getContext(), EventsActivity.class);
-                view.getContext().startActivity(intent);
-            } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.photos_menu_name))){
-                Intent intent = new Intent(view.getContext(), AlbumsActivity.class);
-                view.getContext().startActivity(intent);
-            /*} else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.playlist_menu_name))){
-                Intent intent = new Intent(view.getContext(), .class);
-                view.getContext().startActivity(intent);
-            } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.reservation_menu_name))){
-                Intent intent = new Intent(view.getContext(), .class);
-                view.getContext().startActivity(intent);*/
-            } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.gadget_menu_name))) {
-                Intent intent = new Intent(view.getContext(), GadgetsActivity.class);
-                view.getContext().startActivity(intent);
+        if(view.getContext() instanceof MenuActivity) {
+            if (view.getId() == holder.itemName.getId() || view.getId() == holder.itemPhoto.getId()) {
+                if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.events_menu_name))) {
+                    Intent intent = new Intent(view.getContext(), EventsActivity.class);
+                    view.getContext().startActivity(intent);
+                } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.photos_menu_name))) {
+                    Intent intent = new Intent(view.getContext(), AlbumsActivity.class);
+                    view.getContext().startActivity(intent);
+                /*} else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.playlist_menu_name))){
+                    Intent intent = new Intent(view.getContext(), .class);
+                    view.getContext().startActivity(intent);
+                } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.reservation_menu_name))){
+                    Intent intent = new Intent(view.getContext(), .class);
+                    view.getContext().startActivity(intent);*/
+                } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.gadget_menu_name))) {
+                    Intent intent = new Intent(view.getContext(), GadgetsActivity.class);
+                    view.getContext().startActivity(intent);
+                }
+                /*} else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.live_menu_name))){
+                    Intent intent = new Intent(view.getContext(), AlbumsActivity.class);
+                    view.getContext().startActivity(intent);
+                }*/
             }
-            /*} else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.live_menu_name))){
-                Intent intent = new Intent(view.getContext(), AlbumsActivity.class);
-                view.getContext().startActivity(intent);
-            }*/
+        } else if (view.getContext() instanceof EventsActivity){
+            Intent intent = new Intent(view.getContext(), EventActivity.class);
+            view.getContext().startActivity(intent);
+        } else if (view.getContext() instanceof GadgetsActivity){
+            /*Intent intent = new Intent(view.getContext(), GadgetActivity.class);
+            view.getContext().startActivity(intent);*/
         }
     }
 
