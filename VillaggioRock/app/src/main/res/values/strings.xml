@@ -32,4 +32,9 @@
         Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores
         alias consequatur aut perferendis doloribus asperiores repellat.</string>
     <string name="fb_login">Facebook Login</string>
+    <string name="title_activity_gadget">GadgetActivity</string>
+    <string name="colour_selection">Colore:</string>
+    <string name="size_selection">Taglia:</string>
+    <string name="gadget_dialog_title">Conferma prenotazione</string>
+    <string name="gadget_dialog_message">Confermi la prenotazione?</string>
 </resources>
