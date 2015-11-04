@@ -13,12 +13,15 @@ import android.widget.Toast;
 
 import java.util.List;
 
+import it.hopapps.villaggiorock.AlbumPhotosActivity;
 import it.hopapps.villaggiorock.AlbumsActivity;
 import it.hopapps.villaggiorock.EventActivity;
 import it.hopapps.villaggiorock.EventsActivity;
+import it.hopapps.villaggiorock.GadgetActivity;
 import it.hopapps.villaggiorock.GadgetsActivity;
 import it.hopapps.villaggiorock.MenuActivity;
 import it.hopapps.villaggiorock.R;
+import it.hopapps.villaggiorock.ReservationActivity;
 import it.hopapps.villaggiorock.models.MenuItem;
 
 public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemViewHolder> implements View.OnClickListener{
@@ -71,25 +74,27 @@ public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemVi
                     view.getContext().startActivity(intent);
                 /*} else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.playlist_menu_name))){
                     Intent intent = new Intent(view.getContext(), .class);
-                    view.getContext().startActivity(intent);
-                } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.reservation_menu_name))){
-                    Intent intent = new Intent(view.getContext(), .class);
                     view.getContext().startActivity(intent);*/
+                } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.reservation_menu_name))){
+                    Intent intent = new Intent(view.getContext(), ReservationActivity.class);
+                    view.getContext().startActivity(intent);
                 } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.gadget_menu_name))) {
                     Intent intent = new Intent(view.getContext(), GadgetsActivity.class);
                     view.getContext().startActivity(intent);
-                }
                 /*} else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.live_menu_name))){
-                    Intent intent = new Intent(view.getContext(), AlbumsActivity.class);
-                    view.getContext().startActivity(intent);
-                }*/
+                    Intent intent = new Intent(view.getContext(), .class);
+                    view.getContext().startActivity(intent);*/
+                }
             }
         } else if (view.getContext() instanceof EventsActivity){
             Intent intent = new Intent(view.getContext(), EventActivity.class);
             view.getContext().startActivity(intent);
         } else if (view.getContext() instanceof GadgetsActivity){
-            /*Intent intent = new Intent(view.getContext(), GadgetActivity.class);
-            view.getContext().startActivity(intent);*/
+            Intent intent = new Intent(view.getContext(), GadgetActivity.class);
+            view.getContext().startActivity(intent);
+        } else if (view.getContext() instanceof AlbumsActivity){
+            Intent intent = new Intent(view.getContext(), AlbumPhotosActivity.class);
+            view.getContext().startActivity(intent);
         }
     }
 

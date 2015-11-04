@@ -27,7 +27,7 @@ public class AlbumsImageAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View gridView;
         if (convertView == null) {
-            gridView = new View(context);
+            //gridView = new View(context);
             gridView = inflater.inflate(R.layout.albums_layout, null);
             TextView textView = (TextView) gridView.findViewById(R.id.grid_albums_label);
             textView.setText(albumsItems.get(position).getName());

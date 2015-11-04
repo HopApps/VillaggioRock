@@ -1,5 +1,6 @@
 package it.hopapps.villaggiorock;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,7 +31,8 @@ public class AlbumsActivity extends AppCompatActivity {
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                Toast.makeText(AlbumsActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(AlbumsActivity.this, AlbumPhotosActivity.class);
+                startActivity(intent);
             }
         });
     }
