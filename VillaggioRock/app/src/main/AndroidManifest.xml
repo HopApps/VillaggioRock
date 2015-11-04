@@ -26,11 +26,15 @@
         <activity android:name=".AlbumPhotosActivity" >
         </activity>
         <activity android:name=".SplashScreen" >
-           <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+            <intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+               <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ReservationActivity"
+            android:label="@string/title_activity_reservation"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity
             android:name=".GadgetActivity"

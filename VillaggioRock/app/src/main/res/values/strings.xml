@@ -37,4 +37,10 @@
     <string name="size_selection">Taglia:</string>
     <string name="gadget_dialog_title">Conferma prenotazione</string>
     <string name="gadget_dialog_message">Confermi la prenotazione?</string>
+    <string name="title_activity_reservation">ReservationActivity</string>
+    <string name="reservation_type">Selezionare tipo di prenotazione</string>
+    <string name="reservation_number_hint">Numero di partecipanti</string>
+    <string name="mail_hint">Email</string>
+    <string name="reservation_dialog_title">Conferma prenotazione</string>
+    <string name="reservation_dialog_body">Confermi la prenotazione?</string>
 </resources>
