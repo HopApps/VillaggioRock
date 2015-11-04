@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">VillaggioRock</string>
+    <string name="events_menu_name">Events</string>
+    <string name="photos_menu_name">Foto</string>
+    <string name="playlist_menu_name">Playlist</string>
+    <string name="reservation_menu_name">Prenotazione</string>
+    <string name="gadget_menu_name">Gadget</string>
+    <string name="live_menu_name">Live</string>
     <string name="title_activity_event">EventActivity</string>
     <string name="event_title">Nome Evento</string>
     <string name="event_day">Data</string>
