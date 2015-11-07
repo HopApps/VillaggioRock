@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class SplashScreen extends AppCompatActivity {
+import com.facebook.FacebookSdk;
 
+public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_splash_screen);
         Button connectWithFacebookButton = (Button) findViewById(R.id.buttonLogin);
         connectWithFacebookButton.setOnClickListener(new View.OnClickListener() {
