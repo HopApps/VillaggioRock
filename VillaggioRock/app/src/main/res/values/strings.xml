@@ -50,4 +50,5 @@
     <string name="mail_hint">Email</string>
     <string name="reservation_dialog_title">Conferma prenotazione</string>
     <string name="reservation_dialog_body">Confermi la prenotazione?</string>
+    <string name="hopapps_mail">hopappsgmail.com</string>
 </resources>

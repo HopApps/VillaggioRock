@@ -14,7 +14,7 @@
         android:layout_height="@dimen/app_bar_height"
         android:layout_width="match_parent"
         android:theme="@style/AppTheme.AppBarOverlay"
-        android:background="@drawable/gadget">
+        android:background="@drawable/event_bg">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
