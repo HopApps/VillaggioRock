@@ -51,4 +51,12 @@
     <string name="reservation_dialog_title">Conferma prenotazione</string>
     <string name="reservation_dialog_body">Confermi la prenotazione?</string>
     <string name="hopapps_mail">hopappsgmail.com</string>
+    <!-- errors -->
+    <string name="no_gmail_username">You didn\'t set Gmail username!</string>
+    <string name="no_gmail_password">You didn\'t set Gmail password!</string>
+    <string name="no_email_recipient">You didn\'t set email recipient!</string>
+    <string name="no_internet">User don\'t have internet connection!</string>
+    <!-- messagess -->
+    <string name="loading">Loading&#8230;</string>
+    <string name="message_send">Your message was sent successfully.</string>
 </resources>
