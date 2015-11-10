@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import java.util.List;
 
 import it.hopapps.villaggiorock.AlbumPhotosActivity;
@@ -46,7 +44,6 @@ public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemVi
 
     @Override
     public void onBindViewHolder(MenuItemViewHolder menuItemViewHolder, int i) {
-
         menuItemViewHolder.itemName.setText(menuItems.get(i).getName());
         menuItemViewHolder.itemPhoto.setImageResource(menuItems.get(i).getPhotoId());
     }
