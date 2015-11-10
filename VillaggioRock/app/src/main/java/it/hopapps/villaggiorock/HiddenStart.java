@@ -2,14 +2,10 @@ package it.hopapps.villaggiorock;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.FacebookSdk;
-
-import java.util.logging.Handler;
 
 public class HiddenStart extends Activity {
     AccessTokenTracker accessTokenTracker;
@@ -25,6 +21,7 @@ public class HiddenStart extends Activity {
                 updateWithToken(newAccessToken);
             }
         };
+        //AccessToken.setCurrentAccessToken(null);
         updateWithToken(AccessToken.getCurrentAccessToken());
     }
 

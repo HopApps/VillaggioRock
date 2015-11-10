@@ -1,16 +1,11 @@
 package it.hopapps.villaggiorock;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.Button;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import it.hopapps.villaggiorock.adapters.RVMenuAdapter;
 import it.hopapps.villaggiorock.models.MenuItem;
 
