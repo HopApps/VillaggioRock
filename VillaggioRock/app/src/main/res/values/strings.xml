@@ -50,13 +50,35 @@
     <string name="mail_hint">Email</string>
     <string name="reservation_dialog_title">Conferma prenotazione</string>
     <string name="reservation_dialog_body">Confermi la prenotazione?</string>
-    <string name="hopapps_mail">hopappsgmail.com</string>
+    <string name="hopapps_mail">hopapps@gmail.com</string>
+    <string name="hopapps_pwd">NASCOSTA</string>
+    <string name="hopapps_gadget_mail_subject">Prenotazione Gadget VillaggioRock</string>
+    <string name="hopapps_reservation_mail_subject">Prenotazione Tavolo VillaggioRock</string>
     <!-- errors -->
     <string name="no_gmail_username">You didn\'t set Gmail username!</string>
     <string name="no_gmail_password">You didn\'t set Gmail password!</string>
     <string name="no_email_recipient">You didn\'t set email recipient!</string>
     <string name="no_internet">User don\'t have internet connection!</string>
     <!-- messagess -->
-    <string name="loading">Loading&#8230;</string>
-    <string name="message_send">Your message was sent successfully.</string>
+    <string name="loading">Invio in corso&#8230;</string>
+    <string name="message_send">Prenotazione avvenuta con successo!</string>
+
+    <string name="reservation_spinner_header">Tipo di prenotazione…</string>
+    <string name="gadget_size_spinner_header">Taglia…</string>
+    <string name="gadget_colour_spinner_header">Colore…</string>
+
+    <string name="gadget_mail_body_header">L\'utente X ha prenotato il gadget Y con
+    le seguenti caratteristiche:\n</string>
+    <string name="gadget_mail_body_size">Taglia: </string>
+    <string name="gadget_mail_body_colour">\nColore: </string>
+
+    <string name="reservation_mail_body_header">L\'utente X ha richiesto la seguente
+    prenotazione:\n</string>
+    <string name="reservation_mail_body_type">Tipologia: </string>
+    <string name="reservation_mail_body_going">\nNumero di persone: </string>
+    <string name="reservation_mail_body_mail_address">\nIndirizzo e-mail: </string>
+
+    <string name="missing_fields_error_dialog_title">Errore</string>
+    <string name="missing_fields_error_dialog_body">Mancano alcuni campi per completare la
+        prenotazione</string>
 </resources>
