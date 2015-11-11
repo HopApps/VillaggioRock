@@ -50,4 +50,8 @@
     <string name="mail_hint">Email</string>
     <string name="reservation_dialog_title">Conferma prenotazione</string>
     <string name="reservation_dialog_body">Confermi la prenotazione?</string>
+    <string name="title_activity_playlist">PlaylistActivity</string>
+
+    <string name="spotify_redirect_uri">villaggiorock-app-login.it://callback</string>
+    <string name="spotify_client_id">704f3714f0834c76afd4e549b92760e0</string>
 </resources>
