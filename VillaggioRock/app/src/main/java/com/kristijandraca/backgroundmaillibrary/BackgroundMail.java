@@ -10,11 +10,13 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import it.hopapps.villaggiorock.R;
+
 /**
  * @author kristijandraca@gmail.com
  */
 public class BackgroundMail {
-	String TAG = "Bacground Mail Library";
+	String TAG = "Background Mail Library";
 	String username, password, mailto, subject, body, sendingMessage,
 			sendingMessageSuccess;
 	boolean processVisibility = true;
@@ -25,8 +27,8 @@ public class BackgroundMail {
 		this.mContext = context;
 
 		// set default display messages
-		this.sendingMessage = "Loading...";
-		this.sendingMessageSuccess = "Your message was sent successfully.";
+		this.sendingMessage = mContext.getString(R.string.loading);
+		this.sendingMessageSuccess = mContext.getString(R.string.message_send);
 	}
 
 	public void setGmailUserName(String string) {
