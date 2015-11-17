@@ -50,9 +50,6 @@ public class PlaylistAdapter extends BaseAdapter {
             TextView nameTv = (TextView) playlistView.findViewById(R.id.track_name);
             nameTv.setText(playlistTrackPager.items.get(position).track.name);
 
-            TextView albumTv = (TextView) playlistView.findViewById(R.id.track_album);
-            albumTv.setText(playlistTrackPager.items.get(position).track.album.name);
-
             TextView artistTv = (TextView) playlistView.findViewById(R.id.track_artist);
             String partial = "";
             for (int i = 0; i < playlistTrackPager.items.get(position).track.artists.size(); i++) {
@@ -79,7 +76,12 @@ public class PlaylistAdapter extends BaseAdapter {
             return Long.toString(hDuration) + ":" + Long.toString(mDuration) + ":" + Long.toString(sDuration);
         }
         else {
-            return Long.toString(mDuration) + ":" + Long.toString(sDuration);
+            if (sDuration < 10) {
+                return Long.toString(mDuration) + ":0" + Long.toString(sDuration);
+            }
+            else {
+                return Long.toString(mDuration) + ":" + Long.toString(sDuration);
+            }
         }
     }
 }

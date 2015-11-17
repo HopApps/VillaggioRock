@@ -8,22 +8,16 @@
         android:id="@+id/track_name"
         android:layout_width="@dimen/playlist_item_width"
         android:layout_height="@dimen/playlist_item_height"/>
+
     <TextView
-        android:id="@+id/track_album"
+        android:id="@+id/track_artist"
         android:layout_width="@dimen/playlist_item_width"
         android:layout_height="@dimen/playlist_item_height"
         android:layout_toRightOf="@id/track_name"
         android:layout_toEndOf="@id/track_name"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"/>
-    <TextView
-        android:id="@+id/track_artist"
-        android:layout_width="@dimen/playlist_item_width"
-        android:layout_height="@dimen/playlist_item_height"
-        android:layout_toRightOf="@id/track_album"
-        android:layout_toEndOf="@id/track_album"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"/>
+
     <TextView
         android:id="@+id/track_duration"
         android:layout_width="50dp"
