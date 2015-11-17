@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -26,6 +27,8 @@ import com.spotify.sdk.android.player.Player;
 import com.spotify.sdk.android.player.PlayerNotificationCallback;
 import com.spotify.sdk.android.player.PlayerState;
 import com.spotify.sdk.android.player.Spotify;
+
+import java.util.List;
 
 import it.hopapps.villaggiorock.adapters.PlaylistAdapter;
 import kaaes.spotify.webapi.android.SpotifyApi;
@@ -135,14 +138,35 @@ public class PlaylistActivity extends AppCompatActivity implements
                             ListView playlistListView = (ListView) findViewById(R.id.list_view_playlist);
                             playlistListView.setAdapter(new PlaylistAdapter(ctx, playlistTrackPager));
 
-                            for (int i = 0; i < playlistTrackPager.items.size(); i++) {
+                            /*for (int i = 0; i < playlistTrackPager.items.size(); i++) {
                                 Log.d("Track n° " + Integer.toString(i), String.valueOf(playlistTrackPager.items.get(i).track.name));
                                 Log.d("Track n° " + Integer.toString(i), String.valueOf(playlistTrackPager.items.get(i).track.album.name));
                                 for (int j = 0; j < playlistTrackPager.items.get(i).track.artists.size(); j++) {
                                     Log.d("Track n° " + Integer.toString(i), String.valueOf(playlistTrackPager.items.get(i).track.artists.get(j).name));
                                 }
                                 Log.d("Track n° " + Integer.toString(i), formatDuration(playlistTrackPager.items.get(i).track.duration_ms));
-                            }
+                            }*/
+
+                            playButton.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent spotifyIntent = new Intent();
+                                    spotifyIntent.setClassName(ctx.getString(R.string.spotify_package_name), ctx.getString(R.string.spotify_launcher));
+
+                                    PackageManager packageManager = getPackageManager();
+                                    List<ResolveInfo> activities = packageManager.queryIntentActivities(spotifyIntent, 0);
+                                    boolean isIntentSafe = activities.size() > 0;
+
+                                    if (isIntentSafe) {
+                                        startActivity(spotifyIntent);
+                                    }
+                                    else {
+                                        Uri playStoreSpotify = Uri.parse("https://play.google.com/store/apps/details?id=com.spotify.music&hl=it");
+                                        Intent playStoreIntent = new Intent(Intent.ACTION_VIEW, playStoreSpotify);
+                                        startActivity(playStoreIntent);
+                                    }
+                                }
+                            });
                         }
 
                         @Override
