@@ -9,15 +9,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
+import it.hopapps.villaggiorock.asyncTasks.FacebookEventRetriever;
+
 public class EventActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
+        Intent i = this.getIntent();
+        String eventId = i.getExtras().getString("id");
+        FacebookEventRetriever fber = new FacebookEventRetriever(eventId, this);
+        fber.execute();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         Button reservationButton = (Button) findViewById(R.id.reserve_button);
         reservationButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -83,9 +83,6 @@ public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemVi
                     view.getContext().startActivity(intent);*/
                 }
             }
-        } else if (view.getContext() instanceof EventsActivity){
-            Intent intent = new Intent(view.getContext(), EventActivity.class);
-            view.getContext().startActivity(intent);
         } else if (view.getContext() instanceof GadgetsActivity){
             Intent intent = new Intent(view.getContext(), GadgetActivity.class);
             view.getContext().startActivity(intent);

@@ -55,7 +55,14 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MenuItemVi
     @Override
     public void onClick(View view) {
         MenuItemViewHolder holder = (MenuItemViewHolder) view.getTag();
+        String eventId = null;
+        for(int i=0; i<eventsItems.size(); i++){
+            if(eventsItems.get(i).getName().equals(holder.itemName.getText())){
+                eventId = eventsItems.get(i).getId();
+            }
+        }
         Intent intent = new Intent(view.getContext(), EventActivity.class);
+        intent.putExtra("id", eventId);
         view.getContext().startActivity(intent);
     }
 
