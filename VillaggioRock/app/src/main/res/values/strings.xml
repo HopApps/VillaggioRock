@@ -67,4 +67,5 @@
     <string name="spotify_package_name_old">com.spotify.mobile.android.ui</string>
     <string name="spotify_launcher_old">com.spotify.mobile.android.ui.Launcher</string>
     <string name="spotify_market_uri">market://details?id=com.spotify.music</string>
+    <string name="spotify_playstore_uri">https://play.google.com/store/apps/details?id=com.spotify.music</string>
 </resources>

@@ -1,6 +1,7 @@
 package it.hopapps.villaggiorock;
 
 import android.app.AlertDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -47,30 +48,10 @@ public class PlaylistActivity extends AppCompatActivity implements
 
     Context ctx = this;
 
-    // Old onCreate()
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_playlist);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }*/
-
     // TODO: Replace with your client ID
     private static final String CLIENT_ID = "704f3714f0834c76afd4e549b92760e0";
     // TODO: Replace with your redirect URI
     private static final String REDIRECT_URI = "villaggiorock-app-login.it://callback";
-
-    private Player mPlayer;
 
     private static final int REQUEST_CODE = 1342;
     @Override
@@ -95,27 +76,8 @@ public class PlaylistActivity extends AppCompatActivity implements
         final FloatingActionButton bigPlayButton = (FloatingActionButton) findViewById(R.id.play_fab);
         bigPlayButton.setClickable(false);
 
-        /*playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PackageManager packageManager = getPackageManager();
-                if (packageManager != null) {
-                    Intent spotifyIntent = packageManager.getLaunchIntentForPackage(ctx.getString(R.string.spotify_package_name));
-                    startActivity(spotifyIntent);
-                }
-                else {
-                    try {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + ctx.getString(R.string.spotify_package_name))));
-                    } catch (android.content.ActivityNotFoundException anfe) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + ctx.getString(R.string.spotify_package_name))));
-                    }
-                }
-            }
-        });*/
-
         super.onActivityResult(requestCode, resultCode, intent);
 
-        // Check if result comes from the correct activity
         if (requestCode == REQUEST_CODE) {
             AuthenticationResponse response = AuthenticationClient.getResponse(resultCode, intent);
 
@@ -126,26 +88,17 @@ public class PlaylistActivity extends AppCompatActivity implements
                     SpotifyService spotifyService = spotifyApi.getService();
                     spotifyService.getPlaylist(ctx.getString(R.string.user_id), ctx.getString(R.string.playlist_id), new Callback<Playlist>() {
                         @Override
-                        public void success(Playlist playlist, Response response) {
+                        public void success(final Playlist playlist, Response response) {
                             Log.d("playlist success", playlist.name);
                             TextView playlistTitle = (TextView) findViewById(R.id.playlist_title);
                             playlistTitle.setText(playlist.name);
                             playButton.setClickable(true);
                             bigPlayButton.setClickable(true);
 
-                            Pager<PlaylistTrack> playlistTrackPager = playlist.tracks;
+                            final Pager<PlaylistTrack> playlistTrackPager = playlist.tracks;
 
                             ListView playlistListView = (ListView) findViewById(R.id.list_view_playlist);
                             playlistListView.setAdapter(new PlaylistAdapter(ctx, playlistTrackPager));
-
-                            /*for (int i = 0; i < playlistTrackPager.items.size(); i++) {
-                                Log.d("Track n° " + Integer.toString(i), String.valueOf(playlistTrackPager.items.get(i).track.name));
-                                Log.d("Track n° " + Integer.toString(i), String.valueOf(playlistTrackPager.items.get(i).track.album.name));
-                                for (int j = 0; j < playlistTrackPager.items.get(i).track.artists.size(); j++) {
-                                    Log.d("Track n° " + Integer.toString(i), String.valueOf(playlistTrackPager.items.get(i).track.artists.get(j).name));
-                                }
-                                Log.d("Track n° " + Integer.toString(i), formatDuration(playlistTrackPager.items.get(i).track.duration_ms));
-                            }*/
 
                             playButton.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -158,10 +111,11 @@ public class PlaylistActivity extends AppCompatActivity implements
                                     boolean isIntentSafe = activities.size() > 0;
 
                                     if (isIntentSafe) {
+                                        spotifyIntent.putExtra(SearchManager.QUERY, playlist.name);
                                         startActivity(spotifyIntent);
                                     }
                                     else {
-                                        Uri playStoreSpotify = Uri.parse("https://play.google.com/store/apps/details?id=com.spotify.music&hl=it");
+                                        Uri playStoreSpotify = Uri.parse(ctx.getString(R.string.spotify_playstore_uri));
                                         Intent playStoreIntent = new Intent(Intent.ACTION_VIEW, playStoreSpotify);
                                         startActivity(playStoreIntent);
                                     }
@@ -236,18 +190,6 @@ public class PlaylistActivity extends AppCompatActivity implements
     protected void onDestroy() {
         Spotify.destroyPlayer(this);
         super.onDestroy();
-    }
-
-    protected String formatDuration (long duration) {
-        long sDuration = (duration / 1000) % 60 ;
-        long mDuration = ((duration / (1000*60)) % 60);
-        long hDuration = ((duration / (1000*60*60)) % 24);
-        if (hDuration != 0) {
-            return Long.toString(hDuration) + ":" + Long.toString(mDuration) + ":" + Long.toString(sDuration);
-        }
-        else {
-            return Long.toString(mDuration) + ":" + Long.toString(sDuration);
-        }
     }
 
 }

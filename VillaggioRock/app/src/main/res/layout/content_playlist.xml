@@ -23,18 +23,19 @@
 
     <Button
         android:id="@+id/play_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/listen_spotify"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/playlist_title"
-        android:text="@string/play_playlist_button"/>
+        android:layout_below="@id/playlist_title"/>
 
     <ListView
         android:id="@+id/list_view_playlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/play_button"
+        android:layout_marginTop="16dp"
         />
 
 
