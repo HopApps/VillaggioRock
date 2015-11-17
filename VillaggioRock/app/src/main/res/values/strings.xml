@@ -54,4 +54,14 @@
 
     <string name="spotify_redirect_uri">villaggiorock-app-login.it://callback</string>
     <string name="spotify_client_id">704f3714f0834c76afd4e549b92760e0</string>
+    <string name="play_playlist_button">Riproduci playlist</string>
+    <string name="playlist_title">VillaggioRock Playlist</string>
+
+    <string name="playlist_loading_failure_dialog_title">Errore: playlist non trovata</string>
+    <string name="playlist_loading_failure_dialog_body">Controlla la tua connessione e prova a
+        collegarti più tardi</string>
+    <string name="user_id">1182675345</string>
+    <string name="playlist_id">5nHD8jTfEEt8RMMkbqP2ZQ</string>
+    <string name="spotify_package_name">com.spotify.music</string>
+    <string name="spotify_market_uri">market://details?id=com.spotify.music</string>
 </resources>
