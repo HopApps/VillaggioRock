@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorBlack">#000000</color>
     <color name="black_overlay">#66000000</color>
+    <color name="blue_twitter">#55acee</color>
 </resources>
