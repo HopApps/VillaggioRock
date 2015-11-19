@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -103,22 +104,11 @@ public class PlaylistActivity extends AppCompatActivity implements
                             playButton.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Intent spotifyIntent = new Intent();
-                                    spotifyIntent.setClassName(ctx.getString(R.string.spotify_package_name), ctx.getString(R.string.spotify_launcher));
-
-                                    PackageManager packageManager = getPackageManager();
-                                    List<ResolveInfo> activities = packageManager.queryIntentActivities(spotifyIntent, 0);
-                                    boolean isIntentSafe = activities.size() > 0;
-
-                                    if (isIntentSafe) {
-                                        spotifyIntent.putExtra(SearchManager.QUERY, playlist.name);
-                                        startActivity(spotifyIntent);
-                                    }
-                                    else {
-                                        Uri playStoreSpotify = Uri.parse(ctx.getString(R.string.spotify_playstore_uri));
-                                        Intent playStoreIntent = new Intent(Intent.ACTION_VIEW, playStoreSpotify);
-                                        startActivity(playStoreIntent);
-                                    }
+                                    Intent intent = new Intent(MediaStore.INTENT_ACTION_MEDIA_PLAY_FROM_SEARCH);
+                                    intent.setData(Uri.parse(
+                                            "spotify:user:"+ctx.getString(R.string.user_id)+":playlist:"+ctx.getString(R.string.playlist_id)));
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
                                 }
                             });
                         }
