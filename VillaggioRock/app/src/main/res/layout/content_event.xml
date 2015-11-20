@@ -33,8 +33,7 @@
             android:layout_marginLeft="@dimen/text_margin"
             android:layout_marginStart="@dimen/text_margin"
             android:layout_toRightOf="@id/date_icon"
-            android:layout_toEndOf="@id/date_icon"
-            android:text="@string/date_ex"/>
+            android:layout_toEndOf="@id/date_icon"/>
 
 
         <ImageView
@@ -57,8 +56,7 @@
             android:layout_marginLeft="@dimen/text_margin"
             android:layout_marginStart="@dimen/text_margin"
             android:layout_toRightOf="@id/time_icon"
-            android:layout_toEndOf="@id/time_icon"
-            android:text="@string/time_ex"/>
+            android:layout_toEndOf="@id/time_icon"/>
 
         <ImageView
             android:id="@+id/place_icon"
@@ -80,8 +78,7 @@
             android:layout_marginLeft="@dimen/text_margin"
             android:layout_marginStart="@dimen/text_margin"
             android:layout_toRightOf="@id/place_icon"
-            android:layout_toEndOf="@id/place_icon"
-            android:text="@string/place_ex"/>
+            android:layout_toEndOf="@id/place_icon"/>
 
         <ImageView
             android:id="@+id/people_icon"
@@ -102,8 +99,7 @@
             android:layout_marginLeft="@dimen/text_margin"
             android:layout_marginStart="@dimen/text_margin"
             android:layout_toRightOf="@id/people_icon"
-            android:layout_toEndOf="@id/people_icon"
-            android:text="@string/going_number_ex"/>
+            android:layout_toEndOf="@id/people_icon"/>
 
         <Button
             android:id="@+id/reserve_button"
@@ -119,7 +115,6 @@
             android:id="@+id/description"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/long_string"
             android:layout_below="@id/reserve_button"
             android:layout_marginTop="@dimen/text_margin"
             android:layout_marginLeft="@dimen/text_margin"
