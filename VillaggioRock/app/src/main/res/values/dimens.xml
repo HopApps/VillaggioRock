@@ -8,4 +8,6 @@
     <dimen name="gadget_width">210dp</dimen>
     <dimen name="reservation_tv_width">240dp</dimen>
     <dimen name="reservation_width">210dp</dimen>
+    <dimen name="playlist_item_width">130dp</dimen>
+    <dimen name="playlist_item_height">20dp</dimen>
 </resources>
