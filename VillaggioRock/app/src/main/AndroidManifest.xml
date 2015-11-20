@@ -16,7 +16,6 @@
 
         <activity
             android:name=".EventActivity"
-            android:label="@string/event_title"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity android:name=".MenuActivity" >
