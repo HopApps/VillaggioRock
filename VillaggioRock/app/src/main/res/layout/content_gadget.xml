@@ -25,6 +25,7 @@
 
 
     <Spinner
+        android:id="@+id/size_spinner"
         android:layout_width="@dimen/gadget_width"
         android:layout_height="36dp"
         android:layout_toEndOf="@id/size_icon"
@@ -46,6 +47,7 @@
         android:layout_marginStart="@dimen/text_margin"/>
 
     <Spinner
+        android:id="@+id/colour_spinner"
         android:layout_width="@dimen/gadget_width"
         android:layout_height="36dp"
         android:layout_below="@id/size_icon"

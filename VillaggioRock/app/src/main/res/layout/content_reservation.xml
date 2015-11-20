@@ -23,6 +23,7 @@
             android:layout_marginStart="@dimen/text_margin"/>
 
         <Spinner
+            android:id="@+id/reservation_type_spinner"
             android:layout_width="@dimen/reservation_width"
             android:layout_height="36dp"
             android:layout_marginTop="@dimen/text_margin"
