@@ -20,7 +20,7 @@ public class AlbumsImageAdapter extends BaseAdapter {
     private DisplayImageOptions options;
     private LayoutInflater inflater;
 
-    public AlbumsImageAdapter(Context context, List<AlbumsItem> albumsItems) {
+    public AlbumsImageAdapter(Context context, List < AlbumsItem > albumsItems) {
         this.context = context;
         this.albumsItems = albumsItems;
         options = new DisplayImageOptions.Builder()
@@ -33,14 +33,16 @@ public class AlbumsImageAdapter extends BaseAdapter {
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View gridView;
-        if (convertView == null) {
-            gridView = inflater.inflate(R.layout.albums_layout, null);
-            TextView textView = (TextView) gridView.findViewById(R.id.grid_albums_label);
-            textView.setText(albumsItems.get(position).getName());
-            ImageView imageView = (ImageView) gridView.findViewById(R.id.grid_albums_image);
-            imageView.setImageResource(albumsItems.get(position).getPhotoId());
+        final ViewHolder holder;
+        View view = convertView;
+        if (view == null) {
+            view = inflater.inflate(R.layout.albums_layout, parent, false);
+            holder = new ViewHolder();
+            assert view != null;
+            holder.imageView = (ImageView) view.findViewById(R.id.grid_albums_image);
+            holder.textView = (TextView) view.findViewById(R.id.grid_albums_label);
+            holder.textView.setText(albumsItems.get(position).getName());
+            view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
         }
