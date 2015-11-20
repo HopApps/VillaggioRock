@@ -49,9 +49,7 @@ public class PlaylistActivity extends AppCompatActivity implements
 
     Context ctx = this;
 
-    // TODO: Replace with your client ID
     private static final String CLIENT_ID = "704f3714f0834c76afd4e549b92760e0";
-    // TODO: Replace with your redirect URI
     private static final String REDIRECT_URI = "villaggiorock-app-login.it://callback";
 
     private static final int REQUEST_CODE = 1342;
@@ -74,8 +72,6 @@ public class PlaylistActivity extends AppCompatActivity implements
 
         final Button playButton = (Button) findViewById(R.id.play_button);
         playButton.setClickable(false);
-        final FloatingActionButton bigPlayButton = (FloatingActionButton) findViewById(R.id.play_fab);
-        bigPlayButton.setClickable(false);
 
         super.onActivityResult(requestCode, resultCode, intent);
 
@@ -94,7 +90,6 @@ public class PlaylistActivity extends AppCompatActivity implements
                             TextView playlistTitle = (TextView) findViewById(R.id.playlist_title);
                             playlistTitle.setText(playlist.name);
                             playButton.setClickable(true);
-                            bigPlayButton.setClickable(true);
 
                             final Pager<PlaylistTrack> playlistTrackPager = playlist.tracks;
 
@@ -108,7 +103,15 @@ public class PlaylistActivity extends AppCompatActivity implements
                                     intent.setData(Uri.parse(
                                             "spotify:user:"+ctx.getString(R.string.user_id)+":playlist:"+ctx.getString(R.string.playlist_id)));
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    startActivity(intent);
+
+                                    if (intent.resolveActivity(getPackageManager()) != null) {
+                                        startActivity(intent);
+                                    }
+                                    else {
+                                        Intent spotifyPlayStoreIntent = new Intent(Intent.ACTION_VIEW);
+                                        spotifyPlayStoreIntent.setData(Uri.parse(ctx.getString(R.string.spotify_playstore_uri)));
+                                        startActivity(spotifyPlayStoreIntent);
+                                    }
                                 }
                             });
                         }
