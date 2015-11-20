@@ -37,7 +37,7 @@ public class LiveActivity extends AppCompatActivity {
                 EditText tweetEt = (EditText) findViewById(R.id.tweet_text);
                 String tweet = tweetEt.getText().toString();
 
-                tweetIntent.putExtra(Intent.EXTRA_TEXT, tweet + ctx.getString(R.string.hashtag));
+                tweetIntent.putExtra(Intent.EXTRA_TEXT, tweet + " " + ctx.getString(R.string.hashtag));
                 tweetIntent.setType("text/plain");
 
                 PackageManager packManager = getPackageManager();

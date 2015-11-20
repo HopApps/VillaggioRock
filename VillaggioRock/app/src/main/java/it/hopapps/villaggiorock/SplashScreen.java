@@ -23,7 +23,7 @@ public class SplashScreen extends AppCompatActivity {
             //Intent intent = new Intent(SplashScreen.this, MenuActivity.class);
             //intent.putExtra(EXTRA_MESSAGE, message);
             //startActivity(intent);
-            Snackbar.make(findViewById(android.R.id.content), loginResult.getAccessToken().getUserId(), Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            //Snackbar.make(findViewById(android.R.id.content), loginResult.getAccessToken().getUserId(), Snackbar.LENGTH_LONG).setAction("Action", null).show();
         }
 
         @Override

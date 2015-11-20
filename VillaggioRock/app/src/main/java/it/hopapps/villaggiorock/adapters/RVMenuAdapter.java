@@ -17,6 +17,7 @@ import it.hopapps.villaggiorock.EventActivity;
 import it.hopapps.villaggiorock.EventsActivity;
 import it.hopapps.villaggiorock.GadgetActivity;
 import it.hopapps.villaggiorock.GadgetsActivity;
+import it.hopapps.villaggiorock.LiveActivity;
 import it.hopapps.villaggiorock.MenuActivity;
 import it.hopapps.villaggiorock.R;
 import it.hopapps.villaggiorock.ReservationActivity;
@@ -78,9 +79,9 @@ public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemVi
                 } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.gadget_menu_name))) {
                     Intent intent = new Intent(view.getContext(), GadgetsActivity.class);
                     view.getContext().startActivity(intent);
-                /*} else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.live_menu_name))){
-                    Intent intent = new Intent(view.getContext(), .class);
-                    view.getContext().startActivity(intent);*/
+                } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.live_menu_name))){
+                    Intent intent = new Intent(view.getContext(), LiveActivity.class);
+                    view.getContext().startActivity(intent);
                 }
             }
         } else if (view.getContext() instanceof GadgetsActivity){
