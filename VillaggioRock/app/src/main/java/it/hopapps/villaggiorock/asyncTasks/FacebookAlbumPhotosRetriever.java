@@ -39,7 +39,7 @@ public class FacebookAlbumPhotosRetriever extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "photos{images}");
+        parameters.putString("fields", "photos.limit(2000){images}");
         GraphRequest coverRequest = new GraphRequest(
                 AccessToken.getCurrentAccessToken(),
                 "/"+albumId,
