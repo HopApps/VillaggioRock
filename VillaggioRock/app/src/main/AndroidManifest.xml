@@ -50,12 +50,14 @@
             android:theme="@android:style/Theme.NoDisplay" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ShowImageActivity" >
-        </activity>
+       <activity
+            android:name=".LiveActivity"
+            android:label="@string/title_activity_live"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ShowImageActivity" />
     </application>
 
 </manifest>
