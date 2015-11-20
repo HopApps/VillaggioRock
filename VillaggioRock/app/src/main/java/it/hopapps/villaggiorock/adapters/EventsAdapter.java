@@ -26,7 +26,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MenuItemVi
 
     @Override
     public MenuItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_card_layout, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_card_layout_events, parent, false);
         MenuItemViewHolder mivh = new MenuItemViewHolder(v);
         mivh.itemName.setOnClickListener(EventsAdapter.this);
         mivh.itemPhoto.setOnClickListener(EventsAdapter.this);
