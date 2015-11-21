@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:id="@+id/gadget_layout_coordinator"
     tools:context="it.hopapps.villaggiorock.GadgetActivity">
 
     <android.support.design.widget.AppBarLayout

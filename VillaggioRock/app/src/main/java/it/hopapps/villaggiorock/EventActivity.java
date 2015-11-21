@@ -3,17 +3,12 @@ package it.hopapps.villaggiorock;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
 
 import java.util.Arrays;
 
@@ -28,6 +23,8 @@ public class EventActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setEnabled(false);
         Intent i = this.getIntent();
         eventId = i.getExtras().getString("id");
         FacebookEventRetriever fber = new FacebookEventRetriever(eventId, this);
@@ -39,10 +36,10 @@ public class EventActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EventActivity.this, ReservationActivity.class);
+                intent.putExtra("id", eventId);
                 startActivity(intent);
             }
         });
-        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

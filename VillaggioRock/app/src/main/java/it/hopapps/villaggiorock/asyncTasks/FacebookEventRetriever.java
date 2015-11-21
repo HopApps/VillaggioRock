@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.facebook.AccessToken;
@@ -91,6 +93,8 @@ public class FacebookEventRetriever extends AsyncTask<Void, Void, Void> {
         TextView placeTV = (TextView) ((Activity)context).findViewById(R.id.tv_place);
         TextView goingTV = (TextView) ((Activity)context).findViewById(R.id.tv_going);
         TextView descriptionTV = (TextView) ((Activity)context).findViewById(R.id.description);
+        Button reservationButton = (Button) ((Activity)context).findViewById(R.id.reserve_button);
+        FloatingActionButton likeButton = (FloatingActionButton) ((Activity)context).findViewById(R.id.fab);
         try {
             collapsingToolbar.setTitle(jsonObjectEvent.getString("name"));
             collapsingToolbar.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
@@ -105,6 +109,8 @@ public class FacebookEventRetriever extends AsyncTask<Void, Void, Void> {
             placeTV.setText(place.getString("name") + ", " + location.getString("street")+ " " + location.getString("city"));
             goingTV.setText(jsonObjectAttendingNumber.getString("attending_count"));
             descriptionTV.setText(jsonObjectEvent.getString("description"));
+            reservationButton.setEnabled(true);
+            likeButton.setEnabled(true);
         } catch (ParseException e) {
             e.printStackTrace();
         } catch (JSONException e) {

@@ -106,6 +106,7 @@
             android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:enabled="false"
             android:layout_marginTop="@dimen/text_margin"
             android:text="@string/reserve_button"
             android:layout_below="@id/people_icon"

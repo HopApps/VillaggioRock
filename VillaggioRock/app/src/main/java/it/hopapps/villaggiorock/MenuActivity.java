@@ -37,7 +37,7 @@ public class MenuActivity extends AppCompatActivity {
         menuItems.add(new MenuItem(getResources().getString(R.string.events_menu_name), R.drawable.menu_item_events));
         menuItems.add(new MenuItem(getResources().getString(R.string.photos_menu_name), R.drawable.menu_item_foto));
         menuItems.add(new MenuItem(getResources().getString(R.string.playlist_menu_name), R.drawable.menu_item_playlist));
-        menuItems.add(new MenuItem(getResources().getString(R.string.reservation_menu_name), R.drawable.menu_item_prenotazione));
+        //menuItems.add(new MenuItem(getResources().getString(R.string.reservation_menu_name), R.drawable.menu_item_prenotazione));
         menuItems.add(new MenuItem(getResources().getString(R.string.gadget_menu_name), R.drawable.menu_item_gadget));
         menuItems.add(new MenuItem(getResources().getString(R.string.live_menu_name), R.drawable.menu_item_live));
     }

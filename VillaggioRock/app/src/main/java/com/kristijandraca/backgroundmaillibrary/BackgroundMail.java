@@ -7,7 +7,9 @@ import com.kristijandraca.backgroundmaillibrary.mail.GmailSender;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import it.hopapps.villaggiorock.R;
@@ -22,9 +24,11 @@ public class BackgroundMail {
 	boolean processVisibility = true;
 	ArrayList<String> attachments = new ArrayList<String>();
 	Context mContext;
+	View v;
 
-	public BackgroundMail(Context context) {
+	public BackgroundMail(Context context, View view) {
 		this.mContext = context;
+		v = view;
 
 		// set default display messages
 		this.sendingMessage = mContext.getString(R.string.loading);
@@ -132,8 +136,7 @@ public class BackgroundMail {
 		protected void onPostExecute(String result) {
 			if (processVisibility != false) {
 				pd.dismiss();
-				Toast.makeText(mContext, sendingMessageSuccess,
-							Toast.LENGTH_SHORT).show();
+				Snackbar.make(v, sendingMessageSuccess, Snackbar.LENGTH_LONG).setAction("Action", null).show();
 			}
 			super.onPostExecute(result);
 		}

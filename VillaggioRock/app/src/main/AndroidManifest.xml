@@ -32,7 +32,6 @@
         </activity>
         <activity
             android:name=".ReservationActivity"
-            android:label="@string/title_activity_reservation"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
         <activity

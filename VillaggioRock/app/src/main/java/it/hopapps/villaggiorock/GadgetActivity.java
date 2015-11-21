@@ -1,5 +1,6 @@
 package it.hopapps.villaggiorock;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -67,7 +68,7 @@ public class GadgetActivity extends AppCompatActivity {
                         .setPositiveButton("Sì", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                BackgroundMail backgroundMail = new BackgroundMail(ctx);
+                                BackgroundMail backgroundMail = new BackgroundMail(ctx, ((Activity)ctx).findViewById(R.id.gadget_layout_coordinator));
                                 backgroundMail.setGmailUserName(ctx.getString(R.string.hopapps_mail));
                                 backgroundMail.setGmailPassword(ctx.getString(R.string.hopapps_pwd));
                                 backgroundMail.setMailTo(ctx.getString(R.string.hopapps_mail));
