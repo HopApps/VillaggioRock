@@ -25,7 +25,6 @@ import it.hopapps.villaggiorock.AlbumsActivity;
 import it.hopapps.villaggiorock.R;
 import it.hopapps.villaggiorock.adapters.AlbumsImageAdapter;
 import it.hopapps.villaggiorock.models.AlbumsItem;
-import it.hopapps.villaggiorock.models.MenuItem;
 
 public class FacebookAlbumsRetriever extends AsyncTask<Void, Void, Void> {
 

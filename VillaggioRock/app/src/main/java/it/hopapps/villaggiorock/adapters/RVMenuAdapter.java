@@ -13,7 +13,6 @@ import java.util.List;
 
 import it.hopapps.villaggiorock.AlbumPhotosActivity;
 import it.hopapps.villaggiorock.AlbumsActivity;
-import it.hopapps.villaggiorock.EventActivity;
 import it.hopapps.villaggiorock.EventsActivity;
 import it.hopapps.villaggiorock.GadgetActivity;
 import it.hopapps.villaggiorock.GadgetsActivity;
@@ -22,13 +21,13 @@ import it.hopapps.villaggiorock.MenuActivity;
 import it.hopapps.villaggiorock.PlaylistActivity;
 import it.hopapps.villaggiorock.R;
 import it.hopapps.villaggiorock.ReservationActivity;
-import it.hopapps.villaggiorock.models.MenuItem;
+import it.hopapps.villaggiorock.models.CustomMenuItem;
 
 public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemViewHolder> implements View.OnClickListener{
-    List<MenuItem> menuItems;
+    List<CustomMenuItem> menuItems;
     private static Context sContext;
 
-    public RVMenuAdapter(List<MenuItem> menuItems, Context c ){
+    public RVMenuAdapter(List<CustomMenuItem> menuItems, Context c ){
         this.menuItems = menuItems;
         this.sContext = c;
     }
@@ -89,7 +88,7 @@ public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemVi
             Intent intent = new Intent(view.getContext(), GadgetActivity.class);
             intent.putExtra("gadget_name", holder.itemName.getText());
             int gadgetImage = -1;
-            for (MenuItem m: menuItems) {
+            for (CustomMenuItem m: menuItems) {
                 if (m.getName().equals(holder.itemName.getText())){
                     gadgetImage = m.getPhotoId();
                 }

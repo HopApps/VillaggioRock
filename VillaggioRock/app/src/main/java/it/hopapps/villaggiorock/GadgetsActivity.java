@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.hopapps.villaggiorock.adapters.RVMenuAdapter;
-import it.hopapps.villaggiorock.models.MenuItem;
+import it.hopapps.villaggiorock.models.CustomMenuItem;
 
 public class GadgetsActivity extends AppCompatActivity {
 
-    private List<MenuItem> gadgetsItems;
+    private List<CustomMenuItem> gadgetsItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class GadgetsActivity extends AppCompatActivity {
 
     private void initializeMenuItems(){
         gadgetsItems = new ArrayList<>();
-        gadgetsItems.add(new MenuItem("Gadget 1", R.drawable.menu_item_events));
-        gadgetsItems.add(new MenuItem("Gadget 2", R.drawable.menu_item_foto));
+        gadgetsItems.add(new CustomMenuItem("Gadget 1", R.drawable.menu_item_events));
+        gadgetsItems.add(new CustomMenuItem("Gadget 2", R.drawable.menu_item_foto));
     }
 }

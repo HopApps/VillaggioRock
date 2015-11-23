@@ -1,10 +1,10 @@
 package it.hopapps.villaggiorock.models;
 
-public class MenuItem {
+public class CustomMenuItem {
     private String name;
     private int photoId;
 
-    public MenuItem(String name, int photoId) {
+    public CustomMenuItem(String name, int photoId) {
         this.name = name;
         this.photoId = photoId;
     }
