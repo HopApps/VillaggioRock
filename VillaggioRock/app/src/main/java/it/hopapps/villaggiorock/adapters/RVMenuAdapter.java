@@ -87,6 +87,14 @@ public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemVi
             }
         } else if (view.getContext() instanceof GadgetsActivity){
             Intent intent = new Intent(view.getContext(), GadgetActivity.class);
+            intent.putExtra("gadget_name", holder.itemName.getText());
+            int gadgetImage = -1;
+            for (MenuItem m: menuItems) {
+                if (m.getName().equals(holder.itemName.getText())){
+                    gadgetImage = m.getPhotoId();
+                }
+            }
+            intent.putExtra("gadget_image", gadgetImage);
             view.getContext().startActivity(intent);
         } else if (view.getContext() instanceof AlbumsActivity){
             Intent intent = new Intent(view.getContext(), AlbumPhotosActivity.class);

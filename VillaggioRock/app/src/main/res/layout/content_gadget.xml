@@ -58,14 +58,42 @@
         android:layout_toEndOf="@id/colour_icon"
         />
 
+    <ImageView
+        android:id="@+id/gadget_mail_icon"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/mail"
+        android:layout_below="@id/colour_icon"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginTop="@dimen/text_margin"/>
+
+    <EditText
+        android:id="@+id/gadget_et_mail"
+        android:layout_width="@dimen/reservation_width"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_below="@id/colour_spinner"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginStart="@dimen/text_margin"
+        android:layout_toRightOf="@id/gadget_mail_icon"
+        android:layout_toEndOf="@id/gadget_mail_icon"
+        android:hint="@string/mail_hint"
+        android:inputType="textEmailAddress"/>
+
     <TextView
         android:id="@+id/gadget_description"
-        android:layout_below="@id/colour_icon"
+        android:layout_below="@id/gadget_mail_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
         android:text="@string/long_string" />
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/gadget_tv_name_hidden"
+        android:visibility="invisible"/>
     </RelativeLayout>
 
 </android.support.v4.widget.NestedScrollView>

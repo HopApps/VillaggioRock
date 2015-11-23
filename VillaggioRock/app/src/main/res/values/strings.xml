@@ -74,9 +74,12 @@
     <string name="gadget_size_spinner_header">Taglia…</string>
     <string name="gadget_colour_spinner_header">Colore…</string>
 
-    <string name="gadget_mail_body_header">L\'utente X ha prenotato il gadget Y con le seguenti caratteristiche:\n</string>
+    <string name="gadget_mail_body_header_1">L\'utente</string>
+    <string name="gadget_mail_body_header_2">ha prenotato il gadget</string>
+    <string name="gadget_mail_body_header_3">con le seguenti caratteristiche:\n</string>
     <string name="gadget_mail_body_size">Taglia: </string>
     <string name="gadget_mail_body_colour">\nColore: </string>
+    <string name="gadget_mail_body_mail_address">\nIndirizzo e-mail: </string>
 
     <string name="reservation_mail_body_header_one">L\'utente</string>
     <string name="reservation_mail_body_header_two">ha richiesto la seguente prenotazione:\n</string>
