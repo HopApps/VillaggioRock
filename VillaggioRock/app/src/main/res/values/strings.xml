@@ -109,9 +109,7 @@
 
     <string name="action_credits">Credits</string>
     <string name="action_logout">Logout</string>
-    <string name="credits_dialog_body">Sviluppato da:
-        \nHopApps
-        \nSebastian Davrieux
-        \nFrancesco Trombi</string>
+    <string name="credits_dialog_body">Sviluppato da Hopapps
+    \nhopapps@gmail.com</string>
     <string name="logout_dialog_body">Sei sicuro di voler disconnettere il tuo account Facebook?</string>
 </resources>

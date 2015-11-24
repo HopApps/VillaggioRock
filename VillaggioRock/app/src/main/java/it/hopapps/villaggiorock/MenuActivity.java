@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -79,7 +80,6 @@ public class MenuActivity extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilderLogout = new AlertDialog.Builder(ctx);
         alertDialogBuilderLogout
                 .setTitle(ctx.getString(R.string.action_logout))
-                .setMessage(ctx.getString(R.string.logout_dialog_body))
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface creditDialog, int which) {
@@ -99,9 +99,12 @@ public class MenuActivity extends AppCompatActivity {
     private void showCredits () {
         Context ctx = this;
         AlertDialog.Builder alertDialogBuilderCredits = new AlertDialog.Builder(ctx);
+
+        LayoutInflater inflater = this.getLayoutInflater();
+
         alertDialogBuilderCredits
                 .setTitle(ctx.getString(R.string.action_credits))
-                .setMessage(ctx.getString(R.string.credits_dialog_body))
+                .setView(inflater.inflate(R.layout.credits_dialog, null))
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface creditDialog, int which) {
