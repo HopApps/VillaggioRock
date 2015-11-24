@@ -6,6 +6,8 @@ import android.os.Bundle;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.FacebookSdk;
+import com.parse.Parse;
+import com.parse.ParseInstallation;
 
 public class HiddenStart extends Activity {
     AccessTokenTracker accessTokenTracker;
