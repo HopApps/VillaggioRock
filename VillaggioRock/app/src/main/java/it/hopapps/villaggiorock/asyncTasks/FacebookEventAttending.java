@@ -49,7 +49,7 @@ public class FacebookEventAttending extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         try {
             if(JSONresponse.getString("success") != null){
-                fab.setBackgroundTintList(ColorStateList.valueOf(context.getResources().getColor(R.color.colorBlack)));
+                fab.setBackgroundTintList(ColorStateList.valueOf(context.getResources().getColor(R.color.colorPrimaryDark)));
                 fab.setEnabled(false);
                 fab.setImageDrawable(context.getResources().getDrawable(R.drawable.gone));
                 Snackbar.make(v, R.string.going_snackbar, Snackbar.LENGTH_LONG).setAction("Action", null).show();

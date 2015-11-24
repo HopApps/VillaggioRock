@@ -19,4 +19,15 @@
         android:layout_height="wrap_content"
         android:hint="Suggerimento"/>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/twitter_fab"
+        android:layout_below="@id/tweet_text"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/twitter_white"
+        app:backgroundTint="@color/blue_twitter"/>
+
 </RelativeLayout>

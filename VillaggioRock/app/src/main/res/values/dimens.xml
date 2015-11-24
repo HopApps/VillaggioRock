@@ -8,6 +8,12 @@
     <dimen name="gadget_width">210dp</dimen>
     <dimen name="reservation_tv_width">240dp</dimen>
     <dimen name="reservation_width">210dp</dimen>
-    <dimen name="playlist_item_width">130dp</dimen>
-    <dimen name="playlist_item_height">20dp</dimen>
+    <dimen name="playlist_name_width">160dp</dimen>
+    <dimen name="playlist_artist_width">100dp</dimen>
+    <dimen name="playlist_duration_width">50dp</dimen>
+    <dimen name="playlist_item_height">18dp</dimen>
+    <dimen name="tweet_button_width">100dp</dimen>
+    <dimen name="tweet_button_heigth">50dp</dimen>
+
+    <dimen name="spinner_font_size">20sp</dimen>
 </resources>

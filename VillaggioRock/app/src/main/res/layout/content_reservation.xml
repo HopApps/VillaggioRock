@@ -40,6 +40,7 @@
             android:src="@drawable/people"
             android:layout_below="@id/reservation_icon"
             android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
             android:layout_marginTop="@dimen/text_margin"/>
 
         <EditText
@@ -63,6 +64,7 @@
             android:src="@drawable/mail"
             android:layout_below="@id/people_icon"
             android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
             android:layout_marginTop="@dimen/text_margin"/>
 
         <EditText

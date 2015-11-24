@@ -6,13 +6,13 @@
 
     <TextView
         android:id="@+id/track_name"
-        android:layout_width="@dimen/playlist_item_width"
+        android:layout_width="@dimen/playlist_name_width"
         android:layout_height="@dimen/playlist_item_height"
         android:textColor="@color/walterWhite"/>
 
     <TextView
         android:id="@+id/track_artist"
-        android:layout_width="@dimen/playlist_item_width"
+        android:layout_width="@dimen/playlist_artist_width"
         android:layout_height="@dimen/playlist_item_height"
         android:layout_toRightOf="@id/track_name"
         android:layout_toEndOf="@id/track_name"
@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/track_duration"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/playlist_duration_width"
         android:layout_height="@dimen/playlist_item_height"
         android:layout_toRightOf="@id/track_duration"
         android:layout_toEndOf="@id/track_artist"
