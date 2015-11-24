@@ -38,8 +38,8 @@
 
     <ImageView
         android:id="@+id/colour_icon"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="@dimen/little_square_icon_size"
+        android:layout_height="@dimen/little_square_icon_size"
         android:src="@drawable/gadget_colour"
         android:layout_below="@id/size_icon"
         android:layout_marginTop="@dimen/text_margin"
@@ -60,11 +60,12 @@
 
     <ImageView
         android:id="@+id/gadget_mail_icon"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
+        android:layout_width="@dimen/little_square_icon_size"
+        android:layout_height="@dimen/little_square_icon_size"
         android:src="@drawable/mail"
         android:layout_below="@id/colour_icon"
         android:layout_marginLeft="@dimen/text_margin"
+        android:layout_marginStart="@dimen/text_margin"
         android:layout_marginTop="@dimen/text_margin"/>
 
     <EditText

@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/date_icon"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/little_square_icon_size"
+            android:layout_height="@dimen/little_square_icon_size"
             android:src="@drawable/date"
             android:layout_marginTop="@dimen/text_margin"
             android:layout_marginLeft="@dimen/text_margin"
@@ -38,8 +38,8 @@
 
         <ImageView
             android:id="@+id/time_icon"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/little_square_icon_size"
+            android:layout_height="@dimen/little_square_icon_size"
             android:src="@drawable/time"
             android:layout_below="@id/date_icon"
             android:layout_marginTop="@dimen/text_margin"
@@ -60,8 +60,8 @@
 
         <ImageView
             android:id="@+id/place_icon"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/little_square_icon_size"
+            android:layout_height="@dimen/little_square_icon_size"
             android:src="@drawable/place"
             android:layout_below="@id/time_icon"
             android:layout_marginLeft="@dimen/text_margin"
@@ -82,11 +82,12 @@
 
         <ImageView
             android:id="@+id/people_icon"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="@dimen/little_square_icon_size"
+            android:layout_height="@dimen/little_square_icon_size"
             android:src="@drawable/people"
             android:layout_below="@id/place_icon"
             android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
             android:layout_marginTop="@dimen/text_margin"/>
 
         <TextView

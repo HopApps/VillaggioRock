@@ -16,4 +16,6 @@
     <dimen name="tweet_button_heigth">50dp</dimen>
 
     <dimen name="spinner_font_size">20sp</dimen>
+
+    <dimen name="little_square_icon_size">36dp</dimen>
 </resources>

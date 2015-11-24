@@ -61,7 +61,7 @@ public class GadgetActivity extends AppCompatActivity {
         final Spinner sizeSpinner = (Spinner) findViewById(R.id.size_spinner);
         ArrayAdapter<String> sizeAdapter = new ArrayAdapter<>(
                 this,
-                android.R.layout.simple_spinner_item,
+                R.layout.spinner_item,
                 sizeOptions
         );
         sizeSpinner.setAdapter(sizeAdapter);
@@ -73,7 +73,7 @@ public class GadgetActivity extends AppCompatActivity {
         final Spinner colourSpinner = (Spinner) findViewById(R.id.colour_spinner);
         ArrayAdapter<String> colourAdapter = new ArrayAdapter<>(
                 this,
-                android.R.layout.simple_spinner_item,
+                R.layout.spinner_item,
                 colourOptions
         );
         colourSpinner.setAdapter(colourAdapter);
