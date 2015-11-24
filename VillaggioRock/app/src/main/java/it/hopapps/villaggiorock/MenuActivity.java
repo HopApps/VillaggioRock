@@ -75,7 +75,25 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void logout () {
-        LoginManager.getInstance().logOut();
+        Context ctx = this;
+        AlertDialog.Builder alertDialogBuilderLogout = new AlertDialog.Builder(ctx);
+        alertDialogBuilderLogout
+                .setTitle(ctx.getString(R.string.action_logout))
+                .setMessage(ctx.getString(R.string.logout_dialog_body))
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface creditDialog, int which) {
+                        creditDialog.cancel();
+                    }
+                })
+                .setPositiveButton("Sì", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        LoginManager.getInstance().logOut();
+                    }
+                });
+        AlertDialog logoutAlertDialog = alertDialogBuilderLogout.create();
+        logoutAlertDialog.show();
     }
 
     private void showCredits () {

@@ -113,4 +113,5 @@
         \nHopApps
         \nSebastian Davrieux
         \nFrancesco Trombi</string>
+    <string name="logout_dialog_body">Sei sicuro di voler disconnettere il tuo account Facebook?</string>
 </resources>
