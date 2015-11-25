@@ -6,24 +6,22 @@ import android.os.Bundle;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.FacebookSdk;
-import com.parse.Parse;
-import com.parse.ParseInstallation;
 
 public class HiddenStart extends Activity {
-    AccessTokenTracker accessTokenTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         FacebookSdk.sdkInitialize(getApplicationContext());
+
         setContentView(R.layout.activity_hidden_start);
-        accessTokenTracker = new AccessTokenTracker() {
+        new AccessTokenTracker() {
             @Override
             protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken newAccessToken) {
                 updateWithToken(newAccessToken);
             }
         };
-        //AccessToken.setCurrentAccessToken(null);
         updateWithToken(AccessToken.getCurrentAccessToken());
     }
 
