@@ -15,8 +15,7 @@ public class EventsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_events);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recicler_view_events_menu);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         new FacebookEventsRetriever(this, recyclerView).execute();
     }

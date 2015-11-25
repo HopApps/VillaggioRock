@@ -18,14 +18,16 @@ public class GadgetsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_gadgets);
         initializeMenuItems();
-        RecyclerView rv = (RecyclerView) findViewById(R.id.recicler_view_gadgets_menu);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rv.setLayoutManager(llm);
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recicler_view_gadgets_menu);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         RVMenuAdapter adapter = new RVMenuAdapter(gadgetsItems, GadgetsActivity.this);
-        rv.setAdapter(adapter);
-        rv.setHasFixedSize(true);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setHasFixedSize(true);
     }
 
     private void initializeMenuItems(){
