@@ -116,4 +116,7 @@
     <string name="yes">sì</string>
     <string name="no">no</string>
     <string name="ok">OK</string>
+
+    <string name="splashscreen_login_failed">Tentativo di login fallito</string>
+    <string name="splashscreen_login_canceled">Tentativo di login annullato</string>
 </resources>
