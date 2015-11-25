@@ -9,7 +9,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.facebook.login.LoginManager;
@@ -29,25 +28,23 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).build();
-        ImageLoader.getInstance().init(config);
+        ImageLoader.getInstance().init(new ImageLoaderConfiguration.Builder(this).build());
+
         setContentView(R.layout.activity_menu);
         initializeMenuItems();
 
-        RecyclerView rv = (RecyclerView) findViewById(R.id.recicler_view_activity_menu);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rv.setLayoutManager(llm);
-
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recicler_view_activity_menu);
         RVMenuAdapter adapter = new RVMenuAdapter(menuItems, MenuActivity.this);
-        rv.setAdapter(adapter);
-        rv.setHasFixedSize(true);
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+        recyclerView.setHasFixedSize(true);
 
     }
 
     @Override
     public boolean onCreateOptionsMenu (Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_menu, menu);
+        getMenuInflater().inflate(R.menu.menu_menu, menu);
         return true;
     }
 
@@ -56,11 +53,9 @@ public class MenuActivity extends AppCompatActivity {
             case R.id.action_logout:
                 logout();
                 return true;
-
             case R.id.action_credits:
                 showCredits();
                 return true;
-
         }
         return false;
     }
@@ -70,7 +65,6 @@ public class MenuActivity extends AppCompatActivity {
         menuItems.add(new CustomMenuItem(getResources().getString(R.string.events_menu_name), R.drawable.menu_item_events));
         menuItems.add(new CustomMenuItem(getResources().getString(R.string.photos_menu_name), R.drawable.menu_item_foto));
         menuItems.add(new CustomMenuItem(getResources().getString(R.string.playlist_menu_name), R.drawable.menu_item_playlist));
-        //menuItems.add(new MenuItem(getResources().getString(R.string.reservation_menu_name), R.drawable.menu_item_prenotazione));
         menuItems.add(new CustomMenuItem(getResources().getString(R.string.gadget_menu_name), R.drawable.menu_item_gadget));
         menuItems.add(new CustomMenuItem(getResources().getString(R.string.live_menu_name), R.drawable.menu_item_live));
     }
@@ -80,20 +74,20 @@ public class MenuActivity extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilderLogout = new AlertDialog.Builder(ctx);
         alertDialogBuilderLogout
                 .setTitle(ctx.getString(R.string.action_logout))
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setMessage(getString(R.string.logout_dialog_body))
+                .setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface creditDialog, int which) {
                         creditDialog.cancel();
                     }
                 })
-                .setPositiveButton("Sì", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         LoginManager.getInstance().logOut();
                     }
                 });
-        AlertDialog logoutAlertDialog = alertDialogBuilderLogout.create();
-        logoutAlertDialog.show();
+        alertDialogBuilderLogout.create().show();
     }
 
     private void showCredits () {
@@ -105,13 +99,12 @@ public class MenuActivity extends AppCompatActivity {
         alertDialogBuilderCredits
                 .setTitle(ctx.getString(R.string.action_credits))
                 .setView(inflater.inflate(R.layout.credits_dialog, null))
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface creditDialog, int which) {
                         creditDialog.cancel();
                     }
                 });
-        AlertDialog creditsAlertDialog = alertDialogBuilderCredits.create();
-        creditsAlertDialog.show();
+        alertDialogBuilderCredits.create().show();
     }
 }
