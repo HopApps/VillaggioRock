@@ -20,12 +20,12 @@ import org.json.JSONObject;
 import it.hopapps.villaggiorock.R;
 
 public class FacebookReservationRetriever  extends AsyncTask<Void, Void, Void> {
-    Context context;
-    String eventId;
-    JSONObject jsonObjectEvent;
-    JSONObject jsonObjectMe;
-    JSONObject jsonObjectCover;
-    JSONObject jsonObjectEmail;
+    private Context context;
+    private String eventId;
+    private JSONObject jsonObjectEvent;
+    private JSONObject jsonObjectMe;
+    private JSONObject jsonObjectCover;
+    private JSONObject jsonObjectEmail;
 
     public FacebookReservationRetriever(String eventId, Context c){
         this.context = c;
@@ -34,50 +34,34 @@ public class FacebookReservationRetriever  extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        new GraphRequest(
-                AccessToken.getCurrentAccessToken(),
-                "/"+eventId,
-                null,
-                HttpMethod.GET,
-                new GraphRequest.Callback() {
+        new GraphRequest(AccessToken.getCurrentAccessToken(), "/"+eventId, null, HttpMethod.GET, new GraphRequest.Callback() {
                     public void onCompleted(GraphResponse response) {
                         jsonObjectEvent = response.getJSONObject();
                     }
-                }
-        ).executeAndWait();
-        new GraphRequest(
-                AccessToken.getCurrentAccessToken(),
-                "/me",
-                null,
-                HttpMethod.GET,
-                new GraphRequest.Callback() {
+                })
+                .executeAndWait();
+        new GraphRequest(AccessToken.getCurrentAccessToken(), "/me", null, HttpMethod.GET, new GraphRequest.Callback() {
                     public void onCompleted(GraphResponse response) {
                         jsonObjectMe = response.getJSONObject();
                     }
-                }
-        ).executeAndWait();
+                })
+                .executeAndWait();
+
         Bundle parameters = new Bundle();
         parameters.putString("fields", "cover");
-        GraphRequest coverRequest = new GraphRequest(
-                AccessToken.getCurrentAccessToken(),
-                "/"+eventId,
-                null,
-                HttpMethod.GET,
-                new GraphRequest.Callback() {
+
+        GraphRequest coverRequest = new GraphRequest(AccessToken.getCurrentAccessToken(), "/"+eventId, null, HttpMethod.GET, new GraphRequest.Callback() {
                     public void onCompleted(GraphResponse response) {
                         jsonObjectCover = response.getJSONObject();
                     }
                 }
         );
+
         coverRequest.setParameters(parameters);
         coverRequest.executeAndWait();
+
         parameters.putString("fields", "email");
-        GraphRequest emailRequest = new GraphRequest(
-                AccessToken.getCurrentAccessToken(),
-                "/me",
-                null,
-                HttpMethod.GET,
-                new GraphRequest.Callback() {
+        GraphRequest emailRequest = new GraphRequest(AccessToken.getCurrentAccessToken(), "/me", null, HttpMethod.GET, new GraphRequest.Callback() {
                     public void onCompleted(GraphResponse response) {
                         jsonObjectEmail = response.getJSONObject();
                     }
@@ -97,10 +81,11 @@ public class FacebookReservationRetriever  extends AsyncTask<Void, Void, Void> {
         try {
             collapsingToolbar.setTitle(jsonObjectEvent.getString("name"));
             collapsingToolbar.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
+
             hiddenName.setText(jsonObjectMe.getString("name"));
             mailEditText.setText(jsonObjectEmail.getString("email"));
-            AppBarLayoutBackgroundSetter ablbs = new AppBarLayoutBackgroundSetter(context, appBarLayout, jsonObjectCover.getJSONObject("cover").getString("source"));
-            ablbs.execute();
+
+            new AppBarLayoutBackgroundSetter(context, appBarLayout, jsonObjectCover.getJSONObject("cover").getString("source")).execute();
         } catch (JSONException e) {
             e.printStackTrace();
         }
