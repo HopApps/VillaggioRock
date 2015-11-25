@@ -1,8 +1,5 @@
 package it.hopapps.villaggiorock.models;
 
-/**
- * Created by sebastian on 17/11/15.
- */
 public class AlbumsItem {
     private String id;
     private String name;

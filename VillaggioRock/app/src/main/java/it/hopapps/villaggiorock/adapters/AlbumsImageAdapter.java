@@ -15,26 +15,27 @@ import it.hopapps.villaggiorock.R;
 import it.hopapps.villaggiorock.models.AlbumsItem;
 
 public class AlbumsImageAdapter extends BaseAdapter {
-    private Context context;
     private List<AlbumsItem> albumsItems;
     private DisplayImageOptions options;
     private LayoutInflater inflater;
 
     public AlbumsImageAdapter(Context context, List < AlbumsItem > albumsItems) {
-        this.context = context;
         this.albumsItems = albumsItems;
+
         options = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
                 .considerExifParams(true)
                 .bitmapConfig(Bitmap.Config.RGB_565)
                 .build();
+
         inflater = LayoutInflater.from(context);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
         final ViewHolder holder;
         View view = convertView;
+
         if (view == null) {
             view = inflater.inflate(R.layout.albums_layout, parent, false);
             holder = new ViewHolder();

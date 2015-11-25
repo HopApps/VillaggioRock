@@ -16,10 +16,10 @@ import it.hopapps.villaggiorock.asyncTasks.BitmapSetter;
 import it.hopapps.villaggiorock.models.EventsItem;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MenuItemViewHolder> implements View.OnClickListener{
-    List<EventsItem> eventsItems;
+    private List<EventsItem> eventsItems;
     private static Context sContext;
 
-    public EventsAdapter(List<EventsItem> eventsItems, Context c ){
+    public EventsAdapter(List<EventsItem> eventsItems, Context c){
         this.eventsItems = eventsItems;
         this.sContext = c;
     }
@@ -27,19 +27,18 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MenuItemVi
     @Override
     public MenuItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_card_layout_events, parent, false);
-        MenuItemViewHolder mivh = new MenuItemViewHolder(v);
-        mivh.itemName.setOnClickListener(EventsAdapter.this);
-        mivh.itemPhoto.setOnClickListener(EventsAdapter.this);
-        mivh.itemName.setTag(mivh);
-        mivh.itemPhoto.setTag(mivh);
-        return mivh;
+        MenuItemViewHolder menuItemViewHolder = new MenuItemViewHolder(v);
+        menuItemViewHolder.itemName.setOnClickListener(EventsAdapter.this);
+        menuItemViewHolder.itemPhoto.setOnClickListener(EventsAdapter.this);
+        menuItemViewHolder.itemName.setTag(menuItemViewHolder);
+        menuItemViewHolder.itemPhoto.setTag(menuItemViewHolder);
+        return menuItemViewHolder;
     }
 
     @Override
     public void onBindViewHolder(MenuItemViewHolder menuItemViewHolder, int i) {
         menuItemViewHolder.itemName.setText(eventsItems.get(i).getName());
-        BitmapSetter bitmapSet = new BitmapSetter(menuItemViewHolder.itemPhoto, eventsItems.get(i).getPhotoUrl());
-        bitmapSet.execute();
+        new BitmapSetter(menuItemViewHolder.itemPhoto, eventsItems.get(i).getPhotoUrl()).execute();
     }
 
     @Override
@@ -56,7 +55,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MenuItemVi
     public void onClick(View view) {
         MenuItemViewHolder holder = (MenuItemViewHolder) view.getTag();
         String eventId = null;
-        for(int i=0; i<eventsItems.size(); i++){
+        for(int i = 0; i < eventsItems.size(); i++){
             if(eventsItems.get(i).getName().equals(holder.itemName.getText())){
                 eventId = eventsItems.get(i).getId();
             }

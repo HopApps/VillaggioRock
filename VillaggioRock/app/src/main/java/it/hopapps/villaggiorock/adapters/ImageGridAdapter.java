@@ -14,13 +14,11 @@ import java.util.List;
 import it.hopapps.villaggiorock.R;
 
 public class ImageGridAdapter extends BaseAdapter {
-    private Context mContext;
-    List<String> urlPhotos;
+    private List<String> urlPhotos;
     private DisplayImageOptions options;
     private LayoutInflater inflater;
 
     public ImageGridAdapter(Context c, List<String> urlPhotos) {
-        mContext = c;
         options = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
@@ -28,7 +26,7 @@ public class ImageGridAdapter extends BaseAdapter {
                 .bitmapConfig(Bitmap.Config.RGB_565)
                 .build();
         this.urlPhotos = urlPhotos;
-        inflater = LayoutInflater.from(mContext);
+        inflater = LayoutInflater.from(c);
     }
 
     public int getCount() {

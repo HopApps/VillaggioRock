@@ -35,12 +35,12 @@ public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemVi
     @Override
     public MenuItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_card_layout, parent, false);
-        MenuItemViewHolder mivh = new MenuItemViewHolder(v);
-        mivh.itemName.setOnClickListener(RVMenuAdapter.this);
-        mivh.itemPhoto.setOnClickListener(RVMenuAdapter.this);
-        mivh.itemName.setTag(mivh);
-        mivh.itemPhoto.setTag(mivh);
-        return mivh;
+        MenuItemViewHolder menuItemViewHolder = new MenuItemViewHolder(v);
+        menuItemViewHolder.itemName.setOnClickListener(RVMenuAdapter.this);
+        menuItemViewHolder.itemPhoto.setOnClickListener(RVMenuAdapter.this);
+        menuItemViewHolder.itemName.setTag(menuItemViewHolder);
+        menuItemViewHolder.itemPhoto.setTag(menuItemViewHolder);
+        return menuItemViewHolder;
     }
 
     @Override
@@ -88,9 +88,9 @@ public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemVi
             Intent intent = new Intent(view.getContext(), GadgetActivity.class);
             intent.putExtra("gadget_name", holder.itemName.getText());
             int gadgetImage = -1;
-            for (CustomMenuItem m: menuItems) {
-                if (m.getName().equals(holder.itemName.getText())){
-                    gadgetImage = m.getPhotoId();
+            for (CustomMenuItem customMenuItem: menuItems) {
+                if (customMenuItem.getName().equals(holder.itemName.getText())){
+                    gadgetImage = customMenuItem.getPhotoId();
                 }
             }
             intent.putExtra("gadget_image", gadgetImage);
