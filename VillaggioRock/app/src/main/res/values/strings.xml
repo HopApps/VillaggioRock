@@ -98,8 +98,8 @@
 
     <string name="playlist_loading_failure_dialog_title">Errore: playlist non trovata</string>
     <string name="playlist_loading_failure_dialog_body">Controlla la tua connessione e prova a collegarti più tardi</string>
-    <string name="user_id">1182675345</string>
-    <string name="playlist_id">5nHD8jTfEEt8RMMkbqP2ZQ</string>
+    <string name="user_id">1166628297</string>
+    <string name="playlist_id">21KH4Qj5Ad5xHc5Lypo7e1</string>
     <string name="spotify_package_name">com.spotify.music</string>
     <string name="spotify_launcher">com.spotify.music.Launcher</string>
     <string name="spotify_package_name_old">com.spotify.mobile.android.ui</string>
