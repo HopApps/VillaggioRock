@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -20,9 +18,9 @@ import org.json.JSONObject;
 import it.hopapps.villaggiorock.R;
 
 public class FacebookGadgetRetriever  extends AsyncTask<Void, Void, Void> {
-    Context context;
-    JSONObject jsonObjectMe;
-    JSONObject jsonObjectEmail;
+    private Context context;
+    private JSONObject jsonObjectMe;
+    private JSONObject jsonObjectEmail;
 
     public FacebookGadgetRetriever(Context c){
         this.context = c;
@@ -30,25 +28,17 @@ public class FacebookGadgetRetriever  extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        new GraphRequest(
-                AccessToken.getCurrentAccessToken(),
-                "/me",
-                null,
-                HttpMethod.GET,
-                new GraphRequest.Callback() {
+        new GraphRequest(AccessToken.getCurrentAccessToken(), "/me", null, HttpMethod.GET, new GraphRequest.Callback() {
                     public void onCompleted(GraphResponse response) {
                         jsonObjectMe = response.getJSONObject();
                     }
-                }
-        ).executeAndWait();
+                })
+                .executeAndWait();
+
         Bundle parameters = new Bundle();
         parameters.putString("fields", "email");
-        GraphRequest emailRequest = new GraphRequest(
-                AccessToken.getCurrentAccessToken(),
-                "/me",
-                null,
-                HttpMethod.GET,
-                new GraphRequest.Callback() {
+
+        GraphRequest emailRequest = new GraphRequest(AccessToken.getCurrentAccessToken(), "/me", null, HttpMethod.GET, new GraphRequest.Callback() {
                     public void onCompleted(GraphResponse response) {
                         jsonObjectEmail = response.getJSONObject();
                     }
@@ -61,7 +51,6 @@ public class FacebookGadgetRetriever  extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        AppBarLayout appBarLayout = (AppBarLayout) ((Activity)context).findViewById(R.id.app_bar);
         EditText mailEditText = (EditText) ((Activity)context).findViewById(R.id.gadget_et_mail);
         TextView hiddenName = (TextView) ((Activity)context).findViewById(R.id.gadget_tv_name_hidden);
         try {
