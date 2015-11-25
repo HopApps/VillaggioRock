@@ -18,7 +18,6 @@ public class BitmapSetter extends AsyncTask<Void, Void, Bitmap> {
         data = s;
     }
 
-    // Decode image in background.
     @Override
     protected Bitmap doInBackground(Void... params) {
         try {
