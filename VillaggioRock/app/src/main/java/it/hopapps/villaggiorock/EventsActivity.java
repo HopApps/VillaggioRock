@@ -11,11 +11,13 @@ public class EventsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_events);
-        RecyclerView rv = (RecyclerView) findViewById(R.id.recicler_view_events_menu);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rv.setLayoutManager(llm);
-        FacebookEventsRetriever fbER = new FacebookEventsRetriever(this, rv);
-        fbER.execute();
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recicler_view_events_menu);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linearLayoutManager);
+
+        new FacebookEventsRetriever(this, recyclerView).execute();
     }
 }
