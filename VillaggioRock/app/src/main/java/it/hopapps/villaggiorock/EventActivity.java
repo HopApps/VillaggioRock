@@ -10,27 +10,28 @@ import android.widget.Button;
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 
-import java.util.Arrays;
+import java.util.Collections;
 
 import it.hopapps.villaggiorock.asyncTasks.FacebookEventAttending;
 import it.hopapps.villaggiorock.asyncTasks.FacebookEventRetriever;
 
 public class EventActivity extends AppCompatActivity {
-    FloatingActionButton fab;
-    String eventId;
+    private FloatingActionButton fab;
+    private String eventId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        eventId = this.getIntent().getExtras().getString("id");
+
+        new FacebookEventRetriever (eventId, this).execute();
+
         setContentView(R.layout.activity_event);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setEnabled(false);
-        Intent i = this.getIntent();
-        eventId = i.getExtras().getString("id");
-        FacebookEventRetriever fber = new FacebookEventRetriever(eventId, this);
-        fber.execute();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         Button reservationButton = (Button) findViewById(R.id.reserve_button);
         reservationButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,14 +41,16 @@ public class EventActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setEnabled(false);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!AccessToken.getCurrentAccessToken().getPermissions().contains("rsvp_event")) {
-                    LoginManager.getInstance().logInWithPublishPermissions(EventActivity.this, Arrays.asList("rsvp_event"));
+                    LoginManager.getInstance().logInWithPublishPermissions(EventActivity.this, Collections.singletonList("rsvp_event"));
                 } else {
-                    FacebookEventAttending fea = new FacebookEventAttending(eventId, fab, view);
-                    fea.execute();
+                    new FacebookEventAttending(eventId, fab, view).execute();
                 }
             }
         });
@@ -55,8 +58,7 @@ public class EventActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        FacebookEventAttending fea = new FacebookEventAttending(eventId, fab, this.findViewById(R.id.event_layout_coordinator));
-        fea.execute();
+        new FacebookEventAttending(eventId, fab, this.findViewById(R.id.event_layout_coordinator));
     }
 
 }
