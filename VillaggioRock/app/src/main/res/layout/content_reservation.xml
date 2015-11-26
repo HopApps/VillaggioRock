@@ -91,7 +91,7 @@
             android:id="@+id/description"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/long_string"
+            android:text="@string/reservation_description"
             android:layout_below="@id/mail_icon"
             android:layout_marginTop="@dimen/text_margin"
             android:layout_marginLeft="@dimen/text_margin"

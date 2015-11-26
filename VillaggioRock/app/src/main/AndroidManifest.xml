@@ -64,7 +64,6 @@
 
         <activity
             android:name=".GadgetActivity"
-            android:label="@string/title_activity_gadget"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
         </activity>
@@ -88,7 +87,6 @@
 
        <activity
             android:name=".LiveActivity"
-            android:label="@string/title_activity_live"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
@@ -98,7 +96,6 @@
 
       <activity
             android:name=".PlaylistActivity"
-            android:label="@string/title_activity_playlist"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 

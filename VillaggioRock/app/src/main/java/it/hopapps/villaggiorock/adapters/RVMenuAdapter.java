@@ -73,9 +73,6 @@ public class RVMenuAdapter extends RecyclerView.Adapter<RVMenuAdapter.MenuItemVi
                 } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.playlist_menu_name))){
                     Intent intent = new Intent(view.getContext(), PlaylistActivity.class);
                     view.getContext().startActivity(intent);
-                } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.reservation_menu_name))){
-                    Intent intent = new Intent(view.getContext(), ReservationActivity.class);
-                    view.getContext().startActivity(intent);
                 } else if (holder.itemName.getText().equals(view.getContext().getResources().getString(R.string.gadget_menu_name))) {
                     Intent intent = new Intent(view.getContext(), GadgetsActivity.class);
                     view.getContext().startActivity(intent);

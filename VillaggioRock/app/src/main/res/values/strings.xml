@@ -1,24 +1,20 @@
 <resources>
-    <string name="app_name">VillaggioRock</string>
+    <string name="app_name">Villaggio Rock</string>
+
     <string name="facebook_app_id">1704215919810635</string>
-    <string name="events_menu_name">Events</string>
+
+    <string name="events_menu_name">Eventi</string>
     <string name="photos_menu_name">Foto</string>
     <string name="playlist_menu_name">Playlist</string>
-    <string name="reservation_menu_name">Prenotazione</string>
     <string name="gadget_menu_name">Gadget</string>
     <string name="live_menu_name">Live</string>
-    <string name="title_activity_event">EventActivity</string>
-    <string name="event_title">Nome Evento</string>
-    <string name="event_day">Data</string>
-    <string name="event_start_time">Orario di inizio</string>
-    <string name="action_settings">Settings</string>
-    <string name="date_ex">11/11/2011</string>
-    <string name="time_ex">11:30–12:30</string>
-    <string name="place_ex">Jesse Street 42, Albuquerque</string>
-    <string name="going_number_ex">42</string>
+
+    <string name="action_settings">Impostazioni</string>
+
     <string name="going_snackbar">Parteciperai all\'evento!</string>
     <string name="reserve_button">Prenota il tuo tavolo!</string>
-    <string name="long_string">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+
+    <string name="gadget_description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
         accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
         veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam
         voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni
@@ -38,35 +34,61 @@
         necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae.
         Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores
         alias consequatur aut perferendis doloribus asperiores repellat.</string>
+
+    <string name="reservation_description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+        accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
+        veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam
+        voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni
+        dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem
+        ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi
+        tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
+        veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
+        ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit
+        esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas
+        nulla pariatur? [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui
+        blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias
+        excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia
+        deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est
+        et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque
+        nihil impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda
+        est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum
+        necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae.
+        Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores
+        alias consequatur aut perferendis doloribus asperiores repellat.</string>
+
     <string name="fb_login">Facebook Login</string>
+
     <string name="title_activity_gadget">GadgetActivity</string>
+
     <string name="colour_selection">Colore:</string>
     <string name="size_selection">Taglia:</string>
+
     <string name="gadget_dialog_title">Conferma prenotazione</string>
     <string name="gadget_dialog_message">Confermi la prenotazione?</string>
-    <string name="title_activity_reservation">ReservationActivity</string>
-    <string name="reservation_type">Selezionare tipo di prenotazione</string>
+
     <string name="reservation_number_hint">Numero di partecipanti</string>
     <string name="mail_hint">Email</string>
+
     <string name="reservation_dialog_title">Conferma prenotazione</string>
     <string name="reservation_dialog_body">Confermi la prenotazione?</string>
-    <string name="title_activity_fullscreen_image">FullscreenImageActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_live">LiveActivity</string>
+
     <string name="twitter_playstore_uri">https://play.google.com/store/apps/details?id=com.twitter.android</string>
-    <string name="hashtag">#prova</string>
+    <string name="hashtag">#villaggiorock</string>
     <string name="twitter_app_name">com.twitter.android</string>
     <string name="hopapps_mail">hopapps@gmail.com</string>
     <string name="hopapps_pwd">PWD</string>
+
     <string name="hopapps_gadget_mail_subject">Prenotazione Gadget VillaggioRock</string>
     <string name="hopapps_reservation_mail_subject">Prenotazione App VillaggioRock</string>
+
     <!-- errors -->
     <string name="no_gmail_username">You didn\'t set Gmail username!</string>
     <string name="no_gmail_password">You didn\'t set Gmail password!</string>
     <string name="no_email_recipient">You didn\'t set email recipient!</string>
     <string name="no_internet">User don\'t have internet connection!</string>
-    <!-- messagess -->
+
+    <!-- messages -->
     <string name="loading">Invio prenotazione in corso&#8230;</string>
     <string name="message_send">Prenotazione avvenuta con successo!</string>
 
@@ -89,12 +111,13 @@
 
     <string name="missing_fields_error_dialog_title">Errore</string>
     <string name="missing_fields_error_dialog_body">Mancano alcuni campi per completare la prenotazione</string>
+
     <string name="title_activity_playlist">PlaylistActivity</string>
 
     <string name="spotify_redirect_uri">villaggiorock-app-login.it://callback</string>
     <string name="spotify_client_id">704f3714f0834c76afd4e549b92760e0</string>
     <string name="play_playlist_button">Riproduci playlist</string>
-    <string name="playlist_title">VillaggioRock Playlist</string>
+    <string name="playlist_title">Caricamento…</string>
 
     <string name="playlist_loading_failure_dialog_title">Errore: playlist non trovata</string>
     <string name="playlist_loading_failure_dialog_body">Controlla la tua connessione e prova a collegarti più tardi</string>

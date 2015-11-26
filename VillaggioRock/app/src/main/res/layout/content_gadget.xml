@@ -88,7 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:text="@string/long_string" />
+        android:text="@string/gadget_description" />
 
     <TextView
         android:layout_width="0dp"
