@@ -1,19 +1,14 @@
 <resources>
     <string name="app_name">Villaggio Rock</string>
 
-    <string name="facebook_app_id">1704215919810635</string>
-
+    <!--Menu names' strings-->
     <string name="events_menu_name">Eventi</string>
     <string name="photos_menu_name">Foto</string>
     <string name="playlist_menu_name">Playlist</string>
     <string name="gadget_menu_name">Gadget</string>
     <string name="live_menu_name">Live</string>
 
-    <string name="action_settings">Impostazioni</string>
-
-    <string name="going_snackbar">Parteciperai all\'evento!</string>
-    <string name="reserve_button">Prenota il tuo tavolo!</string>
-
+    <!--Test strings-->
     <string name="gadget_description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
         accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
         veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam
@@ -34,10 +29,9 @@
         necessitatibus saepe eveniet, ut et voluptates repudiandae sint et molestiae non recusandae.
         Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores
         alias consequatur aut perferendis doloribus asperiores repellat.</string>
-
-    <string name="reservation_description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-        accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore
-        veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam
+    <string name="reservation_description">Sed ut perspiciatis unde omnis iste natus error sit
+        voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo
+        inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam
         voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni
         dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem
         ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi
@@ -56,46 +50,17 @@
         Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores
         alias consequatur aut perferendis doloribus asperiores repellat.</string>
 
-    <string name="fb_login">Facebook Login</string>
+    <!--EventActivity strings-->
+    <string name="going_snackbar">Parteciperai all\'evento!</string>
 
-    <string name="title_activity_gadget">GadgetActivity</string>
-
+    <!--GadgetActivity strings-->
     <string name="colour_selection">Colore:</string>
     <string name="size_selection">Taglia:</string>
-
     <string name="gadget_dialog_title">Conferma prenotazione</string>
     <string name="gadget_dialog_message">Confermi la prenotazione?</string>
-
-    <string name="reservation_number_hint">Numero di partecipanti</string>
-    <string name="mail_hint">Email</string>
-
-    <string name="reservation_dialog_title">Conferma prenotazione</string>
-    <string name="reservation_dialog_body">Confermi la prenotazione?</string>
-    <string name="title_activity_live">LiveActivity</string>
-
-    <string name="twitter_playstore_uri">https://play.google.com/store/apps/details?id=com.twitter.android</string>
-    <string name="hashtag">#villaggiorock</string>
-    <string name="twitter_app_name">com.twitter.android</string>
-    <string name="hopapps_mail">hopapps@gmail.com</string>
-    <string name="hopapps_pwd">PWD</string>
-
     <string name="hopapps_gadget_mail_subject">Prenotazione Gadget VillaggioRock</string>
-    <string name="hopapps_reservation_mail_subject">Prenotazione App VillaggioRock</string>
-
-    <!-- errors -->
-    <string name="no_gmail_username">You didn\'t set Gmail username!</string>
-    <string name="no_gmail_password">You didn\'t set Gmail password!</string>
-    <string name="no_email_recipient">You didn\'t set email recipient!</string>
-    <string name="no_internet">User don\'t have internet connection!</string>
-
-    <!-- messages -->
-    <string name="loading">Invio prenotazione in corso&#8230;</string>
-    <string name="message_send">Prenotazione avvenuta con successo!</string>
-
-    <string name="reservation_spinner_header">Tipo di prenotazione…</string>
     <string name="gadget_size_spinner_header">Taglia…</string>
     <string name="gadget_colour_spinner_header">Colore…</string>
-
     <string name="gadget_mail_body_header_1">L\'utente</string>
     <string name="gadget_mail_body_header_2">ha prenotato il gadget</string>
     <string name="gadget_mail_body_header_3">con le seguenti caratteristiche:\n</string>
@@ -103,22 +68,47 @@
     <string name="gadget_mail_body_colour">\nColore: </string>
     <string name="gadget_mail_body_mail_address">\nIndirizzo e-mail: </string>
 
+    <!--ReservationActivity strings-->
+    <string name="reserve_button">Prenota il tuo tavolo!</string>
+    <string name="reservation_number_hint">Numero di partecipanti</string>
+    <string name="mail_hint">Email</string>
+    <string name="reservation_dialog_title">Conferma prenotazione</string>
+    <string name="reservation_dialog_body">Confermi la prenotazione?</string>
+    <string name="hopapps_reservation_mail_subject">Prenotazione dall\'app VillaggioRock</string>
+    <string name="reservation_spinner_header">Tipo di prenotazione…</string>
     <string name="reservation_mail_body_header_one">L\'utente</string>
     <string name="reservation_mail_body_header_two">ha richiesto la seguente prenotazione:\n</string>
     <string name="reservation_mail_body_type">Tipologia: </string>
     <string name="reservation_mail_body_going">\nNumero di persone: </string>
     <string name="reservation_mail_body_mail_address">\nIndirizzo e-mail: </string>
 
+    <!--HopApps strings-->
+    <string name="hopapps_mail">hopapps@gmail.com</string>
+    <string name="hopapps_pwd">PWD</string>
+
+    <!--LiveActivity strings-->
+    <string name="title_activity_live">LiveActivity</string>
+    <string name="twitter_playstore_uri">https://play.google.com/store/apps/details?id=com.twitter.android</string>
+    <string name="hashtag">#villaggiorock</string>
+    <string name="twitter_app_name">com.twitter.android</string>
+
+    <!-- Mail strings -->
+    <string name="no_gmail_username">You didn\'t set Gmail username!</string>
+    <string name="no_gmail_password">You didn\'t set Gmail password!</string>
+    <string name="no_email_recipient">You didn\'t set email recipient!</string>
+    <string name="no_internet">User don\'t have internet connection!</string>
+    <string name="loading">Invio prenotazione in corso&#8230;</string>
+    <string name="message_send">Prenotazione avvenuta con successo!</string>
+
+    <!-- Missing fields strings -->
     <string name="missing_fields_error_dialog_title">Errore</string>
     <string name="missing_fields_error_dialog_body">Mancano alcuni campi per completare la prenotazione</string>
 
-    <string name="title_activity_playlist">PlaylistActivity</string>
-
+    <!-- PlaylistActivity strings -->
     <string name="spotify_redirect_uri">villaggiorock-app-login.it://callback</string>
     <string name="spotify_client_id">704f3714f0834c76afd4e549b92760e0</string>
     <string name="play_playlist_button">Riproduci playlist</string>
     <string name="playlist_title">Caricamento…</string>
-
     <string name="playlist_loading_failure_dialog_title">Errore: playlist non trovata</string>
     <string name="playlist_loading_failure_dialog_body">Controlla la tua connessione e prova a collegarti più tardi</string>
     <string name="user_id">1166628297</string>
@@ -130,18 +120,25 @@
     <string name="spotify_market_uri">market://details?id=com.spotify.music</string>
     <string name="spotify_playstore_uri">https://play.google.com/store/apps/details?id=com.spotify.music</string>
 
+    <!-- Settings strings -->
     <string name="action_credits">Credits</string>
     <string name="action_logout">Logout</string>
     <string name="credits_dialog_body">Sviluppato da Hopapps
     \nhopapps@gmail.com</string>
     <string name="logout_dialog_body">Sei sicuro di voler disconnettere il tuo account Facebook?</string>
+    <string name="action_settings">Impostazioni</string>
 
+    <!-- Dialogs strings -->
     <string name="yes">sì</string>
     <string name="no">no</string>
     <string name="ok">OK</string>
 
+    <!-- SplashScreenActivity strings -->
     <string name="splashscreen_login_failed">Tentativo di login fallito</string>
     <string name="splashscreen_login_canceled">Tentativo di login annullato</string>
 
+    <!-- Facebook strings -->
     <string name="villaggiorock_page">1638904126342989</string>
+    <string name="fb_login">Facebook Login</string>
+    <string name="facebook_app_id">1704215919810635</string>
 </resources>

@@ -104,7 +104,7 @@ public class PlaylistActivity extends AppCompatActivity implements PlayerNotific
                                     .setMessage(ctx.getString(R.string.playlist_loading_failure_dialog_body))
                                     .setCancelable(false)
                                     .setIcon(R.drawable.error)
-                                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                    .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                             Intent intent = new Intent(ctx, MenuActivity.class);

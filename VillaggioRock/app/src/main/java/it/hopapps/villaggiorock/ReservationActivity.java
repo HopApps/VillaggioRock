@@ -54,13 +54,13 @@ public class ReservationActivity extends AppCompatActivity {
                         .setTitle(R.string.reservation_dialog_title)
                         .setMessage(R.string.reservation_dialog_body)
                         .setCancelable(false)
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        .setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
                             }
                         })
-                        .setPositiveButton("Sì", new DialogInterface.OnClickListener() {
+                        .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 BackgroundMail backgroundMail = new BackgroundMail(ctx, ((Activity) ctx).findViewById(R.id.reservation_layout_coordinator));
@@ -83,7 +83,7 @@ public class ReservationActivity extends AppCompatActivity {
                                     alertDialogBuilderError
                                             .setTitle(ctx.getString(R.string.missing_fields_error_dialog_title))
                                             .setMessage(ctx.getString(R.string.missing_fields_error_dialog_body))
-                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                            .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface errorDialog, int which) {
                                                     errorDialog.cancel();
