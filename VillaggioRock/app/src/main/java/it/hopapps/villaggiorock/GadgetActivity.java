@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -23,63 +22,45 @@ import com.kristijandraca.backgroundmaillibrary.BackgroundMail;
 
 import it.hopapps.villaggiorock.asyncTasks.FacebookGadgetRetriever;
 
-
 public class GadgetActivity extends AppCompatActivity {
-
-    Context ctx = this;
-    String gadgetName;
-    int gadgetImage;
+    private Context ctx = this;
+    private String gadgetName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gadget);
-        Intent i = this.getIntent();
-        gadgetName = i.getExtras().getString("gadget_name");
-        gadgetImage = i.getExtras().getInt("gadget_image");
 
         CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        Intent thisIntent = this.getIntent();
+        gadgetName = thisIntent.getExtras().getString("gadget_name");
         collapsingToolbar.setTitle(gadgetName);
         collapsingToolbar.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
 
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        int gadgetImage = thisIntent.getExtras().getInt("gadget_image");
         appBarLayout.setBackground(ContextCompat.getDrawable(this, gadgetImage));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final TextView hiddenName = (TextView) findViewById(R.id.gadget_tv_name_hidden);
-        final EditText mailEditText = (EditText) findViewById(R.id.gadget_et_mail);
+        new FacebookGadgetRetriever(this).execute();
 
-        FacebookGadgetRetriever fbgr = new FacebookGadgetRetriever(this);
-        fbgr.execute();
-
-        String[] sizeOptions = new String[] {
-                ctx.getString(R.string.gadget_size_spinner_header), "XS", "S", "M", "L", "XL", "XXL"
-        };
-
+        String[] sizeOptions = new String[] { ctx.getString(R.string.gadget_size_spinner_header), "XS", "S", "M", "L", "XL", "XXL" };
+        ArrayAdapter<String> sizeAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, sizeOptions);
         final Spinner sizeSpinner = (Spinner) findViewById(R.id.size_spinner);
-        ArrayAdapter<String> sizeAdapter = new ArrayAdapter<>(
-                this,
-                R.layout.spinner_item,
-                sizeOptions
-        );
         sizeSpinner.setAdapter(sizeAdapter);
 
-        String[] colourOptions = new String[] {
-                ctx.getString(R.string.gadget_colour_spinner_header), "Bianco", "Nero"
-        };
-
-        final Spinner colourSpinner = (Spinner) findViewById(R.id.colour_spinner);
+        String[] colourOptions = new String[] {ctx.getString(R.string.gadget_colour_spinner_header), "Bianco", "Nero"};
         ArrayAdapter<String> colourAdapter = new ArrayAdapter<>(
                 this,
                 R.layout.spinner_item,
                 colourOptions
         );
+        final Spinner colourSpinner = (Spinner) findViewById(R.id.colour_spinner);
         colourSpinner.setAdapter(colourAdapter);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
@@ -104,6 +85,9 @@ public class GadgetActivity extends AppCompatActivity {
                                 backgroundMail.setGmailPassword(ctx.getString(R.string.hopapps_pwd));
                                 backgroundMail.setMailTo(ctx.getString(R.string.hopapps_mail));
                                 backgroundMail.setFormSubject(ctx.getString(R.string.hopapps_gadget_mail_subject));
+
+                                final TextView hiddenName = (TextView) findViewById(R.id.gadget_tv_name_hidden);
+                                final EditText mailEditText = (EditText) findViewById(R.id.gadget_et_mail);
 
                                 String body = reservationMailBodyFormatter(sizeSpinner, colourSpinner, hiddenName, mailEditText);
 
