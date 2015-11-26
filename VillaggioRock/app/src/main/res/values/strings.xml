@@ -119,4 +119,6 @@
 
     <string name="splashscreen_login_failed">Tentativo di login fallito</string>
     <string name="splashscreen_login_canceled">Tentativo di login annullato</string>
+
+    <string name="villaggiorock_page">1638904126342989</string>
 </resources>

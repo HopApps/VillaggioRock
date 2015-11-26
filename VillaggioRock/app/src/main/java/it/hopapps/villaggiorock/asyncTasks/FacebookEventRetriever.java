@@ -26,11 +26,11 @@ import it.hopapps.villaggiorock.R;
 
 public class FacebookEventRetriever extends AsyncTask<Void, Void, Void> {
 
-    JSONObject jsonObjectEvent;
-    JSONObject jsonObjectCover;
-    JSONObject jsonObjectAttendingNumber;
-    String eventId;
-    Context context;
+    private JSONObject jsonObjectEvent;
+    private JSONObject jsonObjectCover;
+    private JSONObject jsonObjectAttendingNumber;
+    private String eventId;
+    private Context context;
 
     public FacebookEventRetriever(String eventId, Context c){
         this.context = c;
@@ -50,6 +50,7 @@ public class FacebookEventRetriever extends AsyncTask<Void, Void, Void> {
                 }
             }
         ).executeAndWait();
+
         Bundle parameters = new Bundle();
         parameters.putString("fields", "cover");
         GraphRequest coverRequest = new GraphRequest(
@@ -63,10 +64,12 @@ public class FacebookEventRetriever extends AsyncTask<Void, Void, Void> {
                 }
             }
         );
+
         coverRequest.setParameters(parameters);
         coverRequest.executeAndWait();
         parameters = new Bundle();
         parameters.putString("fields", "attending_count");
+
         GraphRequest attendingNumberRequest = new GraphRequest(
             AccessToken.getCurrentAccessToken(),
             "/"+eventId,
@@ -78,6 +81,7 @@ public class FacebookEventRetriever extends AsyncTask<Void, Void, Void> {
                 }
             }
         );
+
         attendingNumberRequest.setParameters(parameters);
         attendingNumberRequest.executeAndWait();
         return null;
@@ -86,6 +90,7 @@ public class FacebookEventRetriever extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
+
         CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) ((Activity)context).findViewById(R.id.collapsing_toolbar);
         AppBarLayout appBarLayout = (AppBarLayout) ((Activity)context).findViewById(R.id.app_bar);
         TextView dateTV = (TextView) ((Activity)context).findViewById(R.id.tv_date);
@@ -95,15 +100,18 @@ public class FacebookEventRetriever extends AsyncTask<Void, Void, Void> {
         TextView descriptionTV = (TextView) ((Activity)context).findViewById(R.id.description);
         Button reservationButton = (Button) ((Activity)context).findViewById(R.id.reserve_button);
         FloatingActionButton likeButton = (FloatingActionButton) ((Activity)context).findViewById(R.id.fab);
+
         try {
             collapsingToolbar.setTitle(jsonObjectEvent.getString("name"));
             collapsingToolbar.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
-            AppBarLayoutBackgroundSetter ablbs = new AppBarLayoutBackgroundSetter(context, appBarLayout, jsonObjectCover.getJSONObject("cover").getString("source"));
-            ablbs.execute();
+
+            new AppBarLayoutBackgroundSetter(context, appBarLayout, jsonObjectCover.getJSONObject("cover").getString("source")).execute();
+
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
             Date date = dateFormat.parse(jsonObjectEvent.getString("start_time"));
             dateTV.setText(Integer.toString(date.getDate())+"/"+Integer.toString(date.getMonth()+1)+"/"+Integer.toString(date.getYear()+1900));
-            timeTV.setText(Integer.toString(date.getHours())+":"+Integer.toString(date.getMinutes()));
+            timeTV.setText(Integer.toString(date.getHours())+":"+(date.getMinutes() < 10 ? "0" + Integer.toString(date.getMinutes()) : Integer.toString(date.getMinutes())));
+
             JSONObject place = jsonObjectEvent.getJSONObject("place");
             JSONObject location = place.getJSONObject("location");
             placeTV.setText(place.getString("name") + ", " + location.getString("street")+ " " + location.getString("city"));
@@ -111,9 +119,7 @@ public class FacebookEventRetriever extends AsyncTask<Void, Void, Void> {
             descriptionTV.setText(jsonObjectEvent.getString("description"));
             reservationButton.setEnabled(true);
             likeButton.setEnabled(true);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
+        } catch (ParseException | JSONException e) {
             e.printStackTrace();
         }
 

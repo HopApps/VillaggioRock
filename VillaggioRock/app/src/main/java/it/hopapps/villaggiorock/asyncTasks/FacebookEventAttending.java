@@ -17,10 +17,10 @@ import it.hopapps.villaggiorock.R;
 
 public class FacebookEventAttending extends AsyncTask<Void, Void, Void> {
     private Context context;
-    String eventID;
-    JSONObject JSONresponse;
-    FloatingActionButton fab;
-    View v;
+    private String eventID;
+    private JSONObject JSONresponse;
+    private FloatingActionButton fab;
+    private View v;
 
     public FacebookEventAttending(String eventId, FloatingActionButton fab, View view){
         context = view.getContext();

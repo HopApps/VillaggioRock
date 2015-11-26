@@ -6,11 +6,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.support.design.widget.AppBarLayout;
-import android.widget.ImageView;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class AppBarLayoutBackgroundSetter extends AsyncTask<Void, Void, Bitmap> {
@@ -19,19 +17,16 @@ public class AppBarLayoutBackgroundSetter extends AsyncTask<Void, Void, Bitmap> 
     private Context context;
 
     public AppBarLayoutBackgroundSetter(Context c, AppBarLayout imageView, String s) {
-        imageViewReference = new WeakReference<AppBarLayout>(imageView);
+        imageViewReference = new WeakReference<>(imageView);
         data = s;
         context = c;
     }
 
-    // Decode image in background.
     @Override
     protected Bitmap doInBackground(Void... params) {
         try {
             URL url = new URL(data);
             return BitmapFactory.decodeStream(url.openConnection().getInputStream());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

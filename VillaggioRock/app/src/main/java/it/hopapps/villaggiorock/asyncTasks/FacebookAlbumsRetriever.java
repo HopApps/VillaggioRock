@@ -21,19 +21,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.hopapps.villaggiorock.AlbumPhotosActivity;
-import it.hopapps.villaggiorock.AlbumsActivity;
 import it.hopapps.villaggiorock.R;
 import it.hopapps.villaggiorock.adapters.AlbumsImageAdapter;
 import it.hopapps.villaggiorock.models.AlbumsItem;
 
 public class FacebookAlbumsRetriever extends AsyncTask<Void, Void, Void> {
 
-    JSONObject jsonObjectAlbums;
-    JSONObject jsonObjectAlbumsCovers;
-    JSONArray jsonAlbumsArray;
-    JSONArray jsonAlbumsCovers;
-    Context context;
-    GridView gridview;
+    private JSONObject jsonObjectAlbums;
+    private JSONObject jsonObjectAlbumsCovers;
+    private JSONArray jsonAlbumsArray;
+    private JSONArray jsonAlbumsCovers;
+    private Context context;
+    private GridView gridview;
 
     public FacebookAlbumsRetriever(Context c, GridView gridview) {
         this.context = c;
@@ -45,7 +44,7 @@ public class FacebookAlbumsRetriever extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... params) {
         new GraphRequest(
                 AccessToken.getCurrentAccessToken(),
-                "/1638904126342989/albums",
+                "/"+context.getString(R.string.villaggiorock_page)+"/albums",
                 null,
                 HttpMethod.GET,
                 new GraphRequest.Callback() {
@@ -54,11 +53,13 @@ public class FacebookAlbumsRetriever extends AsyncTask<Void, Void, Void> {
                     }
                 }
         ).executeAndWait();
+
         Bundle parameters = new Bundle();
         parameters.putString("fields", "picture");
+
         GraphRequest albumCovers = new GraphRequest(
                 AccessToken.getCurrentAccessToken(),
-                "/1638904126342989/albums",
+                "/"+context.getString(R.string.villaggiorock_page)+"/albums",
                 null,
                 HttpMethod.GET,
                 new GraphRequest.Callback() {
@@ -67,8 +68,10 @@ public class FacebookAlbumsRetriever extends AsyncTask<Void, Void, Void> {
                     }
                 }
         );
+
         albumCovers.setParameters(parameters);
         albumCovers.executeAndWait();
+
         try {
             jsonAlbumsArray = jsonObjectAlbums.getJSONArray("data");
             jsonAlbumsCovers = jsonObjectAlbumsCovers.getJSONArray("data");
@@ -84,7 +87,11 @@ public class FacebookAlbumsRetriever extends AsyncTask<Void, Void, Void> {
         final List<AlbumsItem> albumsItems = new ArrayList<>();
         try {
             for (int i = 0; i < jsonAlbumsArray.length(); i++) {
-                albumsItems.add(new AlbumsItem(jsonAlbumsArray.getJSONObject(i).getString("id"), jsonAlbumsArray.getJSONObject(i).getString("name"), jsonAlbumsCovers.getJSONObject(i).getJSONObject("picture").getJSONObject("data").getString("url")));
+                albumsItems.add(new AlbumsItem(
+                        jsonAlbumsArray.getJSONObject(i).getString("id"),
+                        jsonAlbumsArray.getJSONObject(i).getString("name"),
+                        jsonAlbumsCovers.getJSONObject(i).getJSONObject("picture").getJSONObject("data").getString("url"))
+                );
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -92,9 +99,8 @@ public class FacebookAlbumsRetriever extends AsyncTask<Void, Void, Void> {
         gridview.setAdapter(new AlbumsImageAdapter(context, albumsItems));
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                String eventId = albumsItems.get(position).getId();
                 Intent intent = new Intent(context, AlbumPhotosActivity.class);
-                intent.putExtra("id", eventId);
+                intent.putExtra("id", albumsItems.get(position).getId());
                 context.startActivity(intent);
             }
         });

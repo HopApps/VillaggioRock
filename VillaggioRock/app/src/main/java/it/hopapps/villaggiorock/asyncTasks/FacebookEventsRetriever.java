@@ -18,17 +18,18 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import it.hopapps.villaggiorock.R;
 import it.hopapps.villaggiorock.adapters.EventsAdapter;
 import it.hopapps.villaggiorock.models.EventsItem;
 
 public class FacebookEventsRetriever extends AsyncTask<Void, Void, Void>{
 
-    JSONArray jsonDataArray;
-    JSONArray jsonCoversArray;
-    JSONObject jsonObjectEvents;
-    JSONObject jsonObjectCovers;
-    Context context;
-    RecyclerView rv;
+    private JSONArray jsonDataArray;
+    private JSONArray jsonCoversArray;
+    private JSONObject jsonObjectEvents;
+    private JSONObject jsonObjectCovers;
+    private Context context;
+    private RecyclerView rv;
 
     public FacebookEventsRetriever(Context c, RecyclerView rv){
         this.context = c;
@@ -38,31 +39,33 @@ public class FacebookEventsRetriever extends AsyncTask<Void, Void, Void>{
     @Override
     protected Void doInBackground(Void... params) {
         new GraphRequest(
-            AccessToken.getCurrentAccessToken(),
-            "/1638904126342989/events",
-            null,
-            HttpMethod.GET,
-            new GraphRequest.Callback() {
+                AccessToken.getCurrentAccessToken(),
+                "/"+context.getString(R.string.villaggiorock_page)+"/events",
+                null,
+                HttpMethod.GET, new GraphRequest.Callback() {
                 public void onCompleted(GraphResponse response) {
                     jsonObjectEvents = response.getJSONObject();
                 }
-            }
-        ).executeAndWait();
+            }).executeAndWait();
+
         Bundle parameters = new Bundle();
         parameters.putString("fields", "cover");
+
         GraphRequest coverRequest = new GraphRequest(
-            AccessToken.getCurrentAccessToken(),
-            "/1638904126342989/events",
-            null,
-            HttpMethod.GET,
-            new GraphRequest.Callback() {
+                AccessToken.getCurrentAccessToken(),
+                "/"+context.getString(R.string.villaggiorock_page)+"/events",
+                null,
+                HttpMethod.GET,
+                new GraphRequest.Callback() {
                 public void onCompleted(GraphResponse response) {
                     jsonObjectCovers = response.getJSONObject();
                 }
             }
         );
+
         coverRequest.setParameters(parameters);
         coverRequest.executeAndWait();
+
         try {
             jsonDataArray = jsonObjectEvents.getJSONArray("data");
             jsonCoversArray = jsonObjectCovers.getJSONArray("data");
@@ -84,9 +87,7 @@ public class FacebookEventsRetriever extends AsyncTask<Void, Void, Void>{
                     jsonDataResult.put(jsonDataArray.getJSONObject(i));
                     jsonCoversResult.put(jsonCoversArray.getJSONObject(i));
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            } catch (ParseException e) {
+            } catch (JSONException | ParseException e) {
                 e.printStackTrace();
             }
         }
@@ -100,7 +101,11 @@ public class FacebookEventsRetriever extends AsyncTask<Void, Void, Void>{
         ArrayList eventsItems = new ArrayList<>();
         try {
             for(int i = 0; i<jsonDataArray.length(); i++) {
-                eventsItems.add(new EventsItem(jsonDataArray.getJSONObject(i).getString("id"), jsonDataArray.getJSONObject(i).getString("name"), jsonCoversArray.getJSONObject(i).getJSONObject("cover").getString("source")));
+                eventsItems.add(new EventsItem(
+                        jsonDataArray.getJSONObject(i).getString("id"),
+                        jsonDataArray.getJSONObject(i).getString("name"),
+                        jsonCoversArray.getJSONObject(i).getJSONObject("cover").getString("source"))
+                );
             }
             EventsAdapter adapter = new EventsAdapter(eventsItems, context);
             rv.setAdapter(adapter);

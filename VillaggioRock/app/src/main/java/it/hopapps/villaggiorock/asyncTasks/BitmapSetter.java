@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.widget.ImageView;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BitmapSetter extends AsyncTask<Void, Void, Bitmap> {
@@ -23,8 +22,6 @@ public class BitmapSetter extends AsyncTask<Void, Void, Bitmap> {
         try {
             URL url = new URL(data);
             return BitmapFactory.decodeStream(url.openConnection().getInputStream());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

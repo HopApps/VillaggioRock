@@ -21,12 +21,12 @@ import it.hopapps.villaggiorock.adapters.ImageGridAdapter;
 
 public class FacebookAlbumPhotosRetriever extends AsyncTask<Void, Void, Void> {
 
-    JSONObject jsonObjectPhotos;
-    JSONArray jsonPhotosArray;
-    List<String> urlPhotos;
-    String albumId;
-    GridView gridview;
-    Context context;
+    private JSONObject jsonObjectPhotos;
+    private JSONArray jsonPhotosArray;
+    private List<String> urlPhotos;
+    private String albumId;
+    private GridView gridview;
+    private Context context;
     
 
     public FacebookAlbumPhotosRetriever(String albumId, Context c, GridView gridview){
@@ -75,9 +75,8 @@ public class FacebookAlbumPhotosRetriever extends AsyncTask<Void, Void, Void> {
         gridview.setAdapter(new ImageGridAdapter(context, urlPhotos));
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                String eventId = urlPhotos.get(position);
                 Intent intent = new Intent(context, ShowImageActivity.class);
-                intent.putExtra("id", eventId);
+                intent.putExtra("id", urlPhotos.get(position));
                 context.startActivity(intent);
             }
         });
